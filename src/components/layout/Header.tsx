@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { site } from "@/configs/site";
+import { site, withBase } from "@/configs/site";
 import MobileMenu from "@/components/layout/MobileMenu";
 
 export default function Header() {
@@ -9,7 +9,7 @@ export default function Header() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:px-8">
         <Link href="/" className="flex items-center gap-3 font-semibold tracking-tight text-ink">
           <Image
-            src="/icons/android-chrome-192x192.png"
+            src={withBase("/icons/android-chrome-192x192.png")}
             alt=""
             width={192}
             height={192}
