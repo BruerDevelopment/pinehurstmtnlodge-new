@@ -3,8 +3,10 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   output: 'export',
-  cacheComponents: true,
-  partialPrefetching: true,
+  // Static export has no image optimizer server, so next/image must run unoptimized.
+  images: {
+    unoptimized: true,
+  },
   turbopack: {
     rules: {
       "*.css": {

@@ -1,26 +1,30 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Palette mirrors src/configs/colors.ts — keep the two in sync. */
+@theme {
+  --color-page: #f4f3f1;
+  --color-surface: #ffffff;
+  --color-ink: #2b2a27;
+  --color-muted: #6b6862;
+  --color-accent: #3f5a4a;
+  --color-line: #d9d6cf;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+}
+
+[id] {
+  scroll-margin-top: 5rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-page);
+  color: var(--color-ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
 }
