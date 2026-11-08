@@ -1,4 +1,4 @@
-import { site } from "@/configs/site";
+import { absoluteUrl, site } from "@/configs/site";
 import { sitePages } from "@/configs/seo";
 
 // Plain-text summary for AI agents, served at /llms.txt.
@@ -6,7 +6,7 @@ export const dynamic = "force-static";
 
 export function GET() {
   const pages = sitePages
-    .map((page) => `- [${page.title}](${new URL(page.path, site.siteUrl)}): ${page.note}`)
+    .map((page) => `- [${page.title}](${absoluteUrl(page.path)}): ${page.note}`)
     .join("\n");
 
   const text = `# ${site.name}

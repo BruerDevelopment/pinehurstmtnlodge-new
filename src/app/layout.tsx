@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { site } from "@/configs/site";
+import { site, withBase } from "@/configs/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,13 +26,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
   },
-  manifest: "/site.webmanifest",
+  manifest: withBase("/site.webmanifest"),
   icons: {
     icon: [
-      { url: "/icons/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/icons/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: withBase("/icons/favicon-16x16.png"), sizes: "16x16", type: "image/png" },
+      { url: withBase("/icons/favicon-32x32.png"), sizes: "32x32", type: "image/png" },
     ],
-    apple: "/icons/apple-touch-icon.png",
+    apple: withBase("/icons/apple-touch-icon.png"),
   },
 };
 

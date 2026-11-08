@@ -1,4 +1,15 @@
 // All page copy and placeholder content lives here. Swap values to update the site.
+
+// Set by next.config.ts from DEPLOY_TARGET (see there). Empty base path and custom domain by default.
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const siteOrigin = process.env.NEXT_PUBLIC_SITE_ORIGIN ?? "https://pinehurstmtnlodge.com";
+
+// Prefixes a root-relative path with the base path. Needed for image src, which Next does not prefix.
+export const withBase = (path: string) => `${basePath}${path}`;
+
+// Absolute URL for a page or file, including the base path.
+export const absoluteUrl = (path: string) => `${siteOrigin}${basePath}${path}`;
+
 export const site = {
   name: "Pinehurst Mtn Lodge",
   location: "Rollinsville, Colorado",
@@ -9,8 +20,8 @@ export const site = {
   email: "bigpinehurst@gmail.com",
   instagram: "https://www.instagram.com/",
 
-  // TODO: set to the live domain. Used by the sitemap, robots.txt, llms.txt, and structured data.
-  siteUrl: "https://pinehurstmtnlodge.com/",
+  // Used by the sitemap, robots.txt, llms.txt, and structured data. Follows DEPLOY_TARGET.
+  siteUrl: absoluteUrl("/"),
   address: { locality: "Rollinsville", region: "CO", postalCode: "80474", country: "US" },
   // Approximate (about 1 km), so the exact property location is not published.
   geo: { latitude: 39.91, longitude: -105.5, elevationMeters: 2713 },
@@ -31,12 +42,12 @@ export const site = {
 
   // First three are used in the hero mosaic; all six appear in the gallery.
   photos: [
-    { src: "/photos/full-house-drone-shot-deck-side.jpg", alt: "Placeholder photo 1" },
-    { src: "/photos/top-deck-fire-pit-woman.jpg", alt: "Top-Deck Scenic Firepit", fit: "contain" },
-    { src: "/photos/photo-3.svg", alt: "Placeholder photo 3" },
-    { src: "/photos/photo-4.svg", alt: "Placeholder photo 4" },
-    { src: "/photos/photo-5.svg", alt: "Placeholder photo 5" },
-    { src: "/photos/photo-6.svg", alt: "Placeholder photo 6" },
+    { src: withBase("/photos/full-house-drone-shot-deck-side.jpg"), alt: "Placeholder photo 1" },
+    { src: withBase("/photos/top-deck-fire-pit-woman.jpg"), alt: "Top-Deck Scenic Firepit", fit: "contain" },
+    { src: withBase("/photos/photo-3.svg"), alt: "Placeholder photo 3" },
+    { src: withBase("/photos/photo-4.svg"), alt: "Placeholder photo 4" },
+    { src: withBase("/photos/photo-5.svg"), alt: "Placeholder photo 5" },
+    { src: withBase("/photos/photo-6.svg"), alt: "Placeholder photo 6" },
   ],
 
   space: [
@@ -46,7 +57,7 @@ export const site = {
   ],
 
   // Portrait photo shown beside the "The Space" copy.
-  spacePhoto: { src: "/photos/top-deck-fire-pit-woman.jpg", alt: "Top-deck fire pit with a view" },
+  spacePhoto: { src: withBase("/photos/top-deck-fire-pit-woman.jpg"), alt: "Top-deck fire pit with a view" },
 
   // Longer description used in the structured data.
   description:
@@ -121,14 +132,14 @@ export const site = {
       name: "Host name",
       role: "Host",
       bio: "Placeholder: a few words about this host and what they love about the lodge.",
-      photo: "/photos/host-photos/rheo.jpeg",
+      photo: withBase("/photos/host-photos/rheo.jpeg"),
       alt: "Portrait of host 1",
     },
     {
       name: "Host name",
       role: "Host",
       bio: "Placeholder: a few words about this host and what they love about the lodge.",
-      photo: "/photos//host-photos/lisa.jpg",
+      photo: withBase("/photos/host-photos/lisa.jpg"),
       alt: "Portrait of host 2",
     },
   ],
@@ -142,8 +153,8 @@ export const site = {
   // About page: two family photos, the intro, each owner's profile, and a closing note.
   about: {
     familyPhotos: [
-      { src: "/photos/family-1.svg", alt: "Pinehurst Lodge owners, photo 1" },
-      { src: "/photos/family-2.svg", alt: "Pinehurst Lodge owners, photo 2" },
+      { src: withBase("/photos/host-photos/family-aspens.jpg"), alt: "Pinehurst Lodge owners, photo 1" },
+      { src: withBase("/photos/host-photos/family-no-shea-skiing-brett.jpg"), alt: "Pinehurst Lodge owners, photo 2" },
     ],
     intro: [
       "Welcome to our home! We are the Pinehurst Lodge owners (Kraig, Lisa, Parker, Rheo, Keegan, and Shea), a group of passionate travelers, outdoor enthusiasts, and your dedicated short-term rental hosts. While our family is spread across North Carolina and Colorado, we come together to ensure you have an unforgettable stay. Here is a little bit about who we are:",

@@ -1,4 +1,4 @@
-import { site } from "@/configs/site";
+import { absoluteUrl, site } from "@/configs/site";
 
 // Sums bed counts across all rooms, e.g. King x1, Queen x3, for the top-level bed summary.
 function bedSummary() {
@@ -23,7 +23,7 @@ export function lodgingJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "VacationRental",
-    "@id": new URL("/#lodge", site.siteUrl).toString(),
+    "@id": absoluteUrl("/#lodge"),
     name: site.name,
     url: site.siteUrl,
     description: site.description,

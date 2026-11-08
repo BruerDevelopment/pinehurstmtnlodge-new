@@ -5,6 +5,7 @@ import type { LatLng, Map as LeafletMap, Point } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import Section from "@/components/ui/Section";
 import { mapCenter, mapPoints, mapZoom } from "@/configs/map";
+import { withBase } from "@/configs/site";
 
 // Leaflet reads `window` when its module loads, so it is imported only in the browser (inside the effect).
 // Only type imports stay at the top of the file.
@@ -87,8 +88,8 @@ export default function AreaMap() {
       if (cancelled || !ref.current) return;
 
       const icons = {
-        lodge: L.icon({ iconUrl: "/map/icon-1.png", iconSize: [32, 32], iconAnchor: [16, 32], popupAnchor: [0, -32] }),
-        resort: L.icon({ iconUrl: "/map/icon-2.png", iconSize: [32, 32], iconAnchor: [16, 32], popupAnchor: [0, -32] }),
+        lodge: L.icon({ iconUrl: withBase("/map/icon-1.png"), iconSize: [32, 32], iconAnchor: [16, 32], popupAnchor: [0, -32] }),
+        resort: L.icon({ iconUrl: withBase("/map/icon-2.png"), iconSize: [32, 32], iconAnchor: [16, 32], popupAnchor: [0, -32] }),
       };
 
       const m = L.map(ref.current, { center: mapCenter, zoom: mapZoom, scrollWheelZoom: false, zoomControl: false });
