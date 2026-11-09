@@ -7,7 +7,7 @@ author: "Pinehurst Mtn Lodge Team"
 date: "2024-07-03"
 updated: "2024-07-03"
 path: "guides/rollinsville"
-cover: "/photos/articles/rollinsville-cover.svg"
+cover: "/photos/articles/rollinsville-cover.jpg"
 coverAlt: "Placeholder cover for the Discover Rollinsville guide"
 featured: true
 ---

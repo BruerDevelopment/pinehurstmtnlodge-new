@@ -108,7 +108,7 @@ export const faqGroups: FaqGroup[] = [
         question: "What are the kitchen and check-out cleanup expectations?",
         answer: [
           "Guests are welcome to use any cooking utensils, equipment, or food items in the kitchen.",
-          "Before your 12:00 PM check-out, please:",
+          "Before your 12:00 PM check-out, it would be helpful to:",
           [
             "Load and run the dishwasher.",
             "Put any remaining dishes in the sink.",
@@ -185,6 +185,7 @@ export const faqGroups: FaqGroup[] = [
           [
             "Toss Wood Fired Pizza: Located on Main Street in Rollinsville, serving pizzas, fresh salads, and local drinks.",
             "Gold Dirt Distillery: Located just down the street, open Wednesday through Sunday, crafting quality spirits and specialty cocktails.",
+            "Howlin Wind Brewing & Blending: A Rollinsville neighborhood craft brewery where classical, innovative and funky beers are brought to life in this local community gathering space.",
           ],
         ],
       },

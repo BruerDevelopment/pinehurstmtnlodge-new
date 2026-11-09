@@ -150,5 +150,7 @@ export const sitePages = [
   { title: "Things to Do", path: "/things-to-do", note: "Nearby activities and area information." },
   { title: "Your Hosts", path: "/about", note: "About the hosts." },
   { title: "Guest Reviews", path: "/reviews", note: "All guest reviews." },
+  { title: "Accommodations", path: "/accommodations", note: "Bedrooms, kitchens, living spaces, bathrooms, laundry, and garage." },
+  { title: "Kitchen Guide", path: "/kitchen_guide", note: "Photo guide to the upstairs and downstairs kitchens." },
   { title: "FAQs", path: "/faqs", note: "Check-in, house rules, hot tub and fireplace instructions, parking, and nearby attractions." },
 ];
