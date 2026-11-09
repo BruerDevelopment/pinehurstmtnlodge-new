@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
 import AreaMap from "@/components/sections/AreaMap";
-import { absoluteUrl } from "@/configs/site";
+import { pageMetadata } from "@/configs/metadata";
 
 // Legacy map URL. The map also appears on /things-to-do.
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Area Map",
   description: "Interactive map of Rollinsville and the ski resorts and lodge near Pinehurst Mtn Lodge.",
-  alternates: { canonical: absoluteUrl("/area-guide/map") },
-};
+  path: "/area-guide/map",
+  cover: "area_guide",
+});
 
 export default function AreaGuideMapPage() {
   return (

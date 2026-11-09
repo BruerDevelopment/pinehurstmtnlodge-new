@@ -7,7 +7,8 @@ import StayCta from "@/components/articles/StayCta";
 import TableOfContents from "@/components/articles/TableOfContents";
 import JsonLd from "@/components/seo/JsonLd";
 import Link from "next/link";
-import { absoluteUrl, withBase } from "@/configs/site";
+import { withBase } from "@/configs/site";
+import { pageMetadata } from "@/configs/metadata";
 import { articleJsonLd, breadcrumbJsonLd } from "@/configs/seo";
 import { articleHref, formatDate } from "@/lib/article-types";
 import { getAllArticles, getArticleBySlug, getRelatedArticles } from "@/lib/articles";
@@ -26,18 +27,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const article = getArticleBySlug(slug);
   if (!article) return {};
 
-  return {
-    title: `${article.title} | Things to Do | Pinehurst Mtn Lodge`,
+  // The scrapbooking article gets its own cover; the other guides share the area guide cover.
+  const cover = article.routePath.includes("scrapbooking") ? "scrapbooking" : "area_guide";
+  const base = pageMetadata({
+    title: article.title,
     description: article.description,
-    alternates: { canonical: absoluteUrl(articleHref(article)) },
+    path: articleHref(article),
+    cover,
+  });
+
+  return {
+    ...base,
     openGraph: {
+      ...base.openGraph,
       type: "article",
-      title: article.title,
-      description: article.description,
       publishedTime: article.date,
       modifiedTime: article.updated,
       authors: [article.author],
-      images: [{ url: absoluteUrl(article.cover), alt: article.coverAlt }],
     },
   };
 }

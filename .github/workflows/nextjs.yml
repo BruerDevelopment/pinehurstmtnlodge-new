@@ -75,6 +75,8 @@ jobs:
           NEXT_PUBLIC_BASE_PATH: /pinehurstmtnlodge-new
           NEXT_PUBLIC_SITE_ORIGIN: https://bruerdevelopment.github.io
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+      - name: Rasterize social covers into out
+        run: node scripts/rasterize-social-covers.mjs
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

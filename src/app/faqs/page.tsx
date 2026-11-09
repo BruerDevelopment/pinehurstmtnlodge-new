@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
 import JsonLd from "@/components/seo/JsonLd";
+import { pageMetadata } from "@/configs/metadata";
 import { faqJsonLd } from "@/configs/seo";
 import { type Block, faqGroups } from "@/configs/faqs";
-import { absoluteUrl, site } from "@/configs/site";
+import { site } from "@/configs/site";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "FAQs & House Rules",
   description:
     "Check-in and arrival details, house rules, hot tub and fireplace instructions, parking, and nearby attractions and dining at Pinehurst Mtn Lodge.",
-  alternates: { canonical: absoluteUrl("/faqs") },
-};
+  path: "/faqs",
+});
 
 function Answer({ blocks }: { blocks: Block[] }) {
   return (

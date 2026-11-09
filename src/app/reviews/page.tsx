@@ -1,10 +1,13 @@
 import Section from "@/components/ui/Section";
 import ReviewCard from "@/components/sections/ReviewCard";
 import { site } from "@/configs/site";
+import { pageMetadata } from "@/configs/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Guest Reviews",
-};
+  description: "Guest reviews of Pinehurst Mtn Lodge in Rollinsville, Colorado.",
+  path: "/reviews",
+});
 
 export default function ReviewsPage() {
   const { average, count, items } = site.reviews;

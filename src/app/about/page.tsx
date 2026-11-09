@@ -1,10 +1,13 @@
 import Image from "next/image";
 import Section from "@/components/ui/Section";
 import { site } from "@/configs/site";
+import { pageMetadata } from "@/configs/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Your Hosts",
-};
+  description: "Meet the owners and hosts of Pinehurst Mtn Lodge, a family-run mountain home in Rollinsville, Colorado.",
+  path: "/about",
+});
 
 export default function AboutPage() {
   const { familyPhotos, intro, members, closing } = site.about;

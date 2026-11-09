@@ -1,18 +1,16 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "@/configs/metadata";
 import JsonLd from "@/components/seo/JsonLd";
 import PhotoGallery from "@/components/ui/PhotoGallery";
 import Section from "@/components/ui/Section";
 import { downstairsPhotos, kitchenIntro, upstairsPhotos } from "@/configs/kitchen-guide";
 import { breadcrumbJsonLd } from "@/configs/seo";
-import { absoluteUrl } from "@/configs/site";
-
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Kitchen Guide",
   description:
     "A photo guide to the upstairs and downstairs kitchens at Pinehurst Mtn Lodge, with captions for the cookware, dishes, and appliances in each.",
-  alternates: { canonical: absoluteUrl("/kitchen_guide") },
-};
+  path: "/kitchen_guide",
+});
 
 export default function KitchenGuidePage() {
   return (

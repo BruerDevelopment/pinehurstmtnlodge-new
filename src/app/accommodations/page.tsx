@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "@/configs/metadata";
 import RoomCard from "@/components/accommodations/RoomCard";
 import SectionNav from "@/components/accommodations/SectionNav";
 import BookingSection from "@/components/sections/BookingSection";
@@ -7,14 +7,14 @@ import JsonLd from "@/components/seo/JsonLd";
 import Section from "@/components/ui/Section";
 import { accommodationSections } from "@/configs/accommodations";
 import { breadcrumbJsonLd } from "@/configs/seo";
-import { absoluteUrl, site } from "@/configs/site";
+import { site } from "@/configs/site";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Accommodations & Amenities",
   description:
     "Four bedrooms, two kitchens, two gathering spaces, a 7-person hot tub, a pool table, and a craft area at Pinehurst Mtn Lodge in Rollinsville, Colorado.",
-  alternates: { canonical: absoluteUrl("/accommodations") },
-};
+  path: "/accommodations",
+});
 
 export default function AccommodationsPage() {
   return (

@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { site, withBase } from "@/configs/site";
+import { socialCover } from "@/configs/metadata";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,7 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: site.name,
+  // Pages set a plain title; the template adds the brand, e.g. "FAQs | Pinehurst Mtn Lodge".
+  title: { default: site.name, template: `%s | ${site.name}` },
   description: site.tagline,
   metadataBase: new URL(site.siteUrl),
   openGraph: {
@@ -25,6 +27,13 @@ export const metadata: Metadata = {
     siteName: site.name,
     type: "website",
     locale: "en_US",
+    images: [socialCover("default")],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: site.name,
+    description: site.tagline,
+    images: [socialCover("default").url],
   },
   manifest: withBase("/site.webmanifest"),
   icons: {
