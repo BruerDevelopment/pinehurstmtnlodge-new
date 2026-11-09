@@ -1,4 +1,6 @@
 import { absoluteUrl, site } from "@/configs/site";
+import { type Article, articleHref } from "@/lib/article-types";
+import type { FaqGroup } from "@/configs/faqs";
 
 // Sums bed counts across all rooms, e.g. King x1, Queen x3, for the top-level bed summary.
 function bedSummary() {
@@ -95,9 +97,58 @@ export function lodgingJsonLd() {
   };
 }
 
+// FAQPage structured data: one Question per FAQ item, with the answer as plain text.
+export function faqJsonLd(groups: FaqGroup[]) {
+  const questions = groups.flatMap((group) =>
+    group.items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer.map((block) => (Array.isArray(block) ? block.join("\n") : block)).join("\n"),
+      },
+    }))
+  );
+  return { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: questions };
+}
+
+// Article structured data for each guide page.
+export function articleJsonLd(article: Article) {
+  const href = articleHref(article);
+  const isTeam = article.author.toLowerCase().includes("team");
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.description,
+    image: [absoluteUrl(article.cover)],
+    datePublished: article.date,
+    dateModified: article.updated,
+    author: { "@type": isTeam ? "Organization" : "Person", name: article.author },
+    publisher: { "@type": "Organization", name: site.name, url: site.siteUrl },
+    mainEntityOfPage: { "@type": "WebPage", "@id": absoluteUrl(href) },
+    inLanguage: "en-US",
+  };
+}
+
+// Breadcrumb trail. Paths are unprefixed; absoluteUrl adds the origin and base path.
+export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      item: absoluteUrl(item.path),
+    })),
+  };
+}
+
 export const sitePages = [
   { title: "Home", path: "/", note: "Photos, key facts, amenities, guest reviews, and contact." },
   { title: "Things to Do", path: "/things-to-do", note: "Nearby activities and area information." },
   { title: "Your Hosts", path: "/about", note: "About the hosts." },
   { title: "Guest Reviews", path: "/reviews", note: "All guest reviews." },
+  { title: "FAQs", path: "/faqs", note: "Check-in, house rules, hot tub and fireplace instructions, parking, and nearby attractions." },
 ];

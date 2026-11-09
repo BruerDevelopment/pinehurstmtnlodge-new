@@ -1,17 +1,14 @@
-import Section from "@/components/ui/Section";
+import type { Metadata } from "next";
+import ThingsToDoIndex from "@/components/articles/ThingsToDoIndex";
+import { absoluteUrl } from "@/configs/site";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Things to Do",
+  description:
+    "Hikes, fishing spots, local dining, and history around Rollinsville, Colorado, from the Pinehurst Mtn Lodge team.",
+  alternates: { canonical: absoluteUrl("/things-to-do") },
 };
 
 export default function ThingsToDoPage() {
-  return (
-    <main className="flex-1">
-      <Section eyebrow="Explore" title="Things to Do">
-        <p className="text-lg leading-8 text-muted">
-          Placeholder: describe nearby trails, seasonal activities, and local attractions.
-        </p>
-      </Section>
-    </main>
-  );
+  return <ThingsToDoIndex />;
 }

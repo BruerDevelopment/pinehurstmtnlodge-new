@@ -9,8 +9,16 @@ import Contact from "@/components/sections/Contact";
 import AreaMap from "@/components/sections/AreaMap";
 import JsonLd from "@/components/seo/JsonLd";
 import { lodgingJsonLd } from "@/configs/seo";
+import { toSummary } from "@/lib/article-types";
+import { getAllArticles } from "@/lib/articles";
 
 export default function Home() {
+  // Featured guides first, then newest; show three below the map.
+  const guides = [...getAllArticles()]
+    .sort((a, b) => Number(b.featured) - Number(a.featured))
+    .slice(0, 3)
+    .map(toSummary);
+
   return (
     <main className="flex-1">
       <JsonLd data={lodgingJsonLd()} />
@@ -25,7 +33,7 @@ export default function Home() {
       <LinkCards />
       <BookingSection />
       <Contact />
-      <AreaMap />
+      <AreaMap articles={guides} />
     </main>
   );
 }

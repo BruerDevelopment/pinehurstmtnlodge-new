@@ -31,6 +31,7 @@ export const site = {
     { label: "Accommodations", href: "/accommodations" },
     { label: "Things to Do", href: "/things-to-do" },
     { label: "Your Hosts", href: "/about" },
+    { label: "FAQs", href: "/faqs" },
   ],
 
   facts: [
@@ -113,7 +114,7 @@ export const site = {
   linkCards: [
     {
       title: "Things to Do",
-      body: "Placeholder: nearby trails, seasonal activities, and local attractions.",
+      body: "Hikes, fishing spots, local dining, and history around Rollinsville, all in one guide.",
       href: "/things-to-do",
       cta: "Explore the area →",
     },
@@ -181,6 +182,13 @@ export const site = {
     ],
     closing:
       "As a family of adventurers, we know exactly what makes a trip special: comfort, local insights, and seamless hospitality. We are thrilled to host you and hope our home serves as the perfect launchpad for your own big adventures!",
+  },
+
+  // Things to Do index and area guide copy. Categories shown as filter chips when articles exist.
+  thingsToDo: {
+    heading: "Your local's guide to the area around Pinehurst Mtn Lodge",
+    intro: "Trails, lakes, local food, and history around Rollinsville, written by the lodge team.",
+    categories: ["Local Guide", "Hiking", "Fishing", "Food & Drink", "History & Culture", "Crafts"],
   },
 
   bookingLinks: [

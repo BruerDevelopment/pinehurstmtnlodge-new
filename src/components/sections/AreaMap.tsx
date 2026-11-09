@@ -5,7 +5,10 @@ import type { LatLng, Map as LeafletMap, Point } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import Section from "@/components/ui/Section";
 import { mapCenter, mapPoints, mapZoom } from "@/configs/map";
+import Link from "next/link";
 import { withBase } from "@/configs/site";
+import ArticleCard from "@/components/articles/ArticleCard";
+import type { ArticleSummary } from "@/lib/article-types";
 
 // Leaflet reads `window` when its module loads, so it is imported only in the browser (inside the effect).
 // Only type imports stay at the top of the file.
@@ -76,7 +79,8 @@ const badgePosition: Record<Corner, string> = {
   bottomRight: "bottom-24 right-3",
 };
 
-export default function AreaMap() {
+// Optional article cards shown below the map (used on the home page).
+export default function AreaMap({ articles = [] }: { articles?: ArticleSummary[] }) {
   const ref = useRef<HTMLDivElement>(null);
   const [hints, setHints] = useState<Hints>({ topLeft: null, topRight: null, bottomLeft: null, bottomRight: null });
 
@@ -134,6 +138,20 @@ export default function AreaMap() {
           ) : null;
         })}
       </div>
+
+      {articles.length > 0 && (
+        <div className="mt-12">
+          <h3 className="text-2xl font-semibold tracking-tight text-ink">Local guides</h3>
+          <div className="mt-6 grid gap-6 md:grid-cols-3">
+            {articles.map((article) => (
+              <ArticleCard key={article.href} article={article} />
+            ))}
+          </div>
+          <Link href="/things-to-do" className="mt-8 inline-block font-medium text-accent underline underline-offset-4">
+            See all guides
+          </Link>
+        </div>
+      )}
     </Section>
   );
 }
