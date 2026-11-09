@@ -39,11 +39,11 @@ export default function KitchenGuidePage() {
       </section>
 
       <Section id="upstairs-kitchen" title="Upstairs Kitchen Contents">
-        <PhotoGallery photos={upstairsPhotos} columns="sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" />
+        <PhotoGallery photos={upstairsPhotos} columns="sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" fit="contain" />
       </Section>
 
       <Section id="downstairs-kitchen" title="Downstairs Kitchen Contents">
-        <PhotoGallery photos={downstairsPhotos} columns="sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" />
+        <PhotoGallery photos={downstairsPhotos} columns="sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" fit="contain" />
       </Section>
 
       <section className="mx-auto max-w-6xl px-4 pb-16 md:px-8">

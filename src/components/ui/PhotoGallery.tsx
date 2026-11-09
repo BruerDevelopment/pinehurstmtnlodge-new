@@ -12,10 +12,13 @@ export default function PhotoGallery({
   photos,
   columns = "sm:grid-cols-2 lg:grid-cols-3",
   previewCount,
+  fit = "cover",
 }: {
   photos: GalleryPhoto[];
   columns?: string;
   previewCount?: number;
+  // "contain" shows the whole photo inside the tile instead of cropping it.
+  fit?: "cover" | "contain";
 }) {
   const [index, setIndex] = useState<number | null>(null);
 
@@ -34,7 +37,7 @@ export default function PhotoGallery({
                   alt={photo.alt}
                   fill
                   sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                  className="object-cover transition-transform group-hover:scale-[1.02]"
+                  className={`${fit === "contain" ? "object-contain" : "object-cover"} transition-transform group-hover:scale-[1.02]`}
                 />
               </div>
               {photo.caption && <p className="mt-2 text-sm text-muted">{photo.caption}</p>}
