@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
+  <!-- Lodge: dark green circle with a soft shadow and a white house with a door cutout. -->
+  <circle cx="28" cy="30" r="27" fill="#000000" fill-opacity="0.18"/>
+  <circle cx="28" cy="28" r="27" fill="#0b7a3b"/>
+  <polygon points="28,12 44,26 40,26 40,42 16,42 16,26 12,26" fill="#ffffff"/>
+  <rect x="24" y="31" width="8" height="11" fill="#0b7a3b"/>
+</svg>

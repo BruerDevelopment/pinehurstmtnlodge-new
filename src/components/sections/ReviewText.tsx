@@ -21,7 +21,8 @@ export default function ReviewText({ text }: { text: string }) {
 
   return (
     <div className="mt-4">
-      <p ref={ref} className={`leading-7 text-ink ${expanded ? "" : "line-clamp-3"}`}>
+      {/* whitespace-pre-line keeps the \n line breaks in the review text as paragraph breaks. */}
+      <p ref={ref} className={`whitespace-pre-line leading-7 text-ink ${expanded ? "" : "line-clamp-3"}`}>
         {text}
       </p>
       {(overflows || expanded) && (

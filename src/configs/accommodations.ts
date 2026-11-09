@@ -20,6 +20,18 @@ export type AccommodationSection = {
   link?: { label: string; href: string };
 };
 
+// Step-free access note, shown near the top of the accommodations page.
+export const accessNote = {
+  title: "Step-Free Access & Stairs",
+  intro:
+    "Guests with mobility needs should read this before booking. The main entrance has a small porch with two steps and a handrail.",
+  points: [
+    "After the entrance, the top floor can be used for the whole stay: two bedrooms, the upstairs bathrooms, the kitchen, and the living room, with no further stairs.",
+    "The downstairs level, including the downstairs bedrooms and bathroom, is reached by a flight of stairs.",
+    "The hot tub is on the downstairs deck and requires one flight of stairs.",
+  ],
+};
+
 const photo = (name: string, alt: string): Photo => ({ src: withBase(`/photos/rooms/${name}.webp`), alt });
 const craft = (name: string, alt: string): Photo => ({ src: withBase(`/photos/craft/${name}.webp`), alt });
 
@@ -30,12 +42,12 @@ export const accommodationSections: AccommodationSection[] = [
     intro: "Four bedrooms, plus a trundle bed in the downstairs living room.",
     cards: [
       {
-        title: "Upstairs Master Suite",
+        title: "Upstairs King Suite",
         body: "A king-size bed, a dresser for your suitcases, a desk you can use as a remote workspace, and an en suite bathroom. The view is an amazing one.",
         features: ["King-size bed", "Dresser for unpacking", "Desk for a remote workspace", "En suite bathroom"],
         photos: [
-          photo("upstairs-master-1", "Upstairs master suite with a king bed and a window view"),
-          photo("upstairs-master-2", "Upstairs master suite with a bed, desk, and chair"),
+          photo("upstairs-master-1", "Upstairs king suite with a king bed and a window view"),
+          photo("upstairs-master-2", "Upstairs king suite with a bed, desk, and chair"),
         ],
       },
       {
@@ -48,12 +60,12 @@ export const accommodationSections: AccommodationSection[] = [
         ],
       },
       {
-        title: "Downstairs Master Suite",
+        title: "Downstairs Primary Suite",
         body: "A queen bed, a desk, a large closet, and a spectacular view.",
         features: ["Queen bed", "Desk", "Large closet"],
         photos: [
-          photo("downstairs-master-1", "Downstairs master suite with a queen bed and a window"),
-          photo("downstairs-master-2", "Downstairs master suite with a queen bed, desk, and window"),
+          photo("downstairs-master-1", "Downstairs primary suite with a queen bed and a window"),
+          photo("downstairs-master-2", "Downstairs primary suite with a queen bed, desk, and window"),
         ],
       },
       {
@@ -121,8 +133,9 @@ export const accommodationSections: AccommodationSection[] = [
         body: "A large outdoor grill on the deck, with two tables and six chairs and a view.",
         features: ["Large outdoor grill", "Two tables and six chairs"],
         photos: [
-          photo("deck-grill", "Outdoor deck with a grill and a sofa"),
-          photo("deck-table", "Deck dining table and chairs with mountain views"),
+          photo("upstairs-deck/deck-grill", "Outdoor deck with a grill and a sofa"),
+          photo("upstairs-deck/deck-table", "Deck dining table and chairs with mountain views"),
+          photo("upstairs-deck/grill-food-view", "Deck outdoor grill with food and a view"),
         ],
       },
     ],
@@ -138,10 +151,10 @@ export const accommodationSections: AccommodationSection[] = [
         body: "Seating for 8, a wood-burning fireplace, a Google smart TV, and a weather station, with a breathtaking view of the Continental Divide. The open layout connects it to the kitchen and dining area.",
         features: ["Seating for 8", "Wood-burning fireplace", "Google smart TV", "Weather station"],
         photos: [
-          photo("living-1", "Upstairs living room with leather seating, a glass coffee table, and a fireplace"),
-          photo("living-2", "Upstairs living room with leather armchairs and a wall-mounted TV"),
-          photo("living-3", "Open living room and kitchen with a kitchen island and bar seating"),
-          photo("living-4", "Living room and dining area seen from the upstairs kitchen"),
+          photo("living-room/living-1", "Upstairs living room with leather seating, a glass coffee table, and a fireplace"),
+          photo("living-room/living-2", "Upstairs living room with leather armchairs and a wall-mounted TV"),
+          photo("living-room/living-3", "Open living room and kitchen with a kitchen island and bar seating"),
+          photo("living-room/living-4", "Living room and dining area seen from the upstairs kitchen"),
         ],
       },
       {
@@ -149,8 +162,9 @@ export const accommodationSections: AccommodationSection[] = [
         body: "A large open area for games, crafting, gathering, or projects, with easy access to the deck and hot tub and a view of the Front Range.",
         features: ["Pool table", "Board games", "Easy access to the deck and hot tub"],
         photos: [
-          photo("living-5", "Game room with a pool table, sofa, and sliding doors to the deck"),
-          photo("living-6", "Living room with a pool table, sofas, and mountain views"),
+          photo("living-room/living-5", "Game room with a pool table, sofa, and sliding doors to the deck"),
+          photo("living-room/living-6", "Living room with a pool table, sofas, and mountain views"),
+          photo("game-shelf", "Shelf with board games and puzzles")
         ],
       },
     ],
@@ -204,10 +218,10 @@ export const accommodationSections: AccommodationSection[] = [
     title: "Bathrooms",
     cards: [
       {
-        title: "Master Bathroom (en suite, upstairs)",
+        title: "Primary Bathroom (en suite, upstairs)",
         body: "A glass shower, two sinks, and a fabulous view.",
         features: ["Glass shower", "Two sinks", "Shampoo, conditioner, and body wash dispensers", "Hand soap, Q-tips, and cotton swabs"],
-        photos: [photo("bath-master", "Master bathroom with a glass-enclosed shower and a double vanity")],
+        photos: [photo("bath-master", "Primary bathroom with a glass-enclosed shower and a double vanity")],
       },
       {
         title: "Upstairs Bathroom (central)",

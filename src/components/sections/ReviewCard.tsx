@@ -10,7 +10,7 @@ export type Review = {
 
 export default function ReviewCard({ review }: { review: Review }) {
   return (
-    <article className="rounded-2xl bg-surface p-6">
+    <article className="rounded-2xl bg-surface p-6 h-fit">
       <div className="flex items-baseline justify-between gap-4">
         <h3 className="font-semibold text-ink">{review.name}</h3>
         <span className="text-xs uppercase tracking-wide text-accent">{review.platform}</span>

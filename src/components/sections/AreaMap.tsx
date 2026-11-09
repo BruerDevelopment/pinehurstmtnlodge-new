@@ -94,6 +94,7 @@ export default function AreaMap({ articles = [] }: { articles?: ArticleSummary[]
       const icons = {
         lodge: L.icon({ iconUrl: withBase("/map/icon-1.png"), iconSize: [32, 32], iconAnchor: [16, 32], popupAnchor: [0, -32] }),
         resort: L.icon({ iconUrl: withBase("/map/icon-2.png"), iconSize: [32, 32], iconAnchor: [16, 32], popupAnchor: [0, -32] }),
+        hiking: L.icon({ iconUrl: withBase("/map/icon-3.png"), iconSize: [32, 32], iconAnchor: [16, 32], popupAnchor: [0, -32] }),
       };
 
       const m = L.map(ref.current, { center: mapCenter, zoom: mapZoom, scrollWheelZoom: false, zoomControl: false });

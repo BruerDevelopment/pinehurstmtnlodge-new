@@ -5,7 +5,7 @@ import SectionNav from "@/components/accommodations/SectionNav";
 import BookingSection from "@/components/sections/BookingSection";
 import JsonLd from "@/components/seo/JsonLd";
 import Section from "@/components/ui/Section";
-import { accommodationSections } from "@/configs/accommodations";
+import { accessNote, accommodationSections } from "@/configs/accommodations";
 import { breadcrumbJsonLd } from "@/configs/seo";
 import { site } from "@/configs/site";
 
@@ -29,7 +29,7 @@ export default function AccommodationsPage() {
       <section className="mx-auto max-w-6xl px-4 pt-12 md:px-8">
         <p className="text-sm font-medium uppercase tracking-widest text-accent">{site.name}</p>
         <h1 className="mt-2 text-4xl font-semibold tracking-tight text-ink md:text-5xl">Accommodations &amp; Amenities</h1>
-        <p className="mt-4 max-w-2xl text-lg leading-8 text-muted">
+        <p className="mt-4 max-w-8xl text-lg leading-8 text-muted">
           Four bedrooms, two fully equipped kitchens, two gathering spaces, and a 7-person hot tub, with views of the
           Continental Divide.
         </p>
@@ -44,7 +44,7 @@ export default function AccommodationsPage() {
         </dl>
 
         <div className="mt-8">
-          <SectionNav sections={accommodationSections.map(({ id, title }) => ({ id, title }))} />
+          <SectionNav sections={[...accommodationSections.map(({ id, title }) => ({ id, title })), {id:"access", title:accessNote.title}]} />
         </div>
       </section>
 
@@ -68,6 +68,15 @@ export default function AccommodationsPage() {
           )}
         </Section>
       ))}
+
+      <Section id="access" title={accessNote.title}>
+        <p className="max-w-3xl text-lg leading-8 text-muted">{accessNote.intro}</p>
+        <ul className="mt-6 max-w-3xl list-disc space-y-3 pl-6 text-lg leading-8 text-muted">
+          {accessNote.points.map((point) => (
+            <li key={point}>{point}</li>
+          ))}
+        </ul>
+      </Section>
 
       <BookingSection />
 

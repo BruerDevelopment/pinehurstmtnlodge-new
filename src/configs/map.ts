@@ -2,7 +2,7 @@
 export type MapPoint = {
   name: string;
   position: [number, number];
-  icon: "lodge" | "resort";
+  icon: "lodge" | "resort" | "hiking";
 };
 
 export const mapCenter: [number, number] = [39.9176458, -105.4998844];
@@ -21,4 +21,5 @@ export const mapPoints: MapPoint[] = [
   { name: "Steamboat Ski Resort", position: [40.4537983, -106.7708804], icon: "resort" },
   { name: "Aspen Snowmass Ski Resort", position: [39.1895221, -106.9497086], icon: "resort" },
   { name: "Crested Butte Mountain Resort", position: [38.8991036, -106.9657648], icon: "resort" },
+  { name: "James Peak Wilderness", position: [39.8717673, -105.6963974], icon: "hiking" },
 ];

@@ -76,7 +76,7 @@ export function lodgingJsonLd() {
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: site.reviews.average,
-      reviewCount: site.reviews.count,
+      reviewCount: site.reviews.items.length,
       bestRating: 5,
       worstRating: 1,
     },
@@ -105,7 +105,11 @@ export function faqJsonLd(groups: FaqGroup[]) {
       name: item.question,
       acceptedAnswer: {
         "@type": "Answer",
-        text: item.answer.map((block) => (Array.isArray(block) ? block.join("\n") : block)).join("\n"),
+        // Structured data gets plain text, so [label](/path) links are reduced to their label.
+        text: item.answer
+          .map((block) => (Array.isArray(block) ? block.join("\n") : block))
+          .join("\n")
+          .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1"),
       },
     }))
   );

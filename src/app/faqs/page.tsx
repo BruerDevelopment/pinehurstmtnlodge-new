@@ -1,3 +1,4 @@
+import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/configs/metadata";
 import { faqJsonLd } from "@/configs/seo";
@@ -11,6 +12,33 @@ export const metadata = pageMetadata({
   path: "/faqs",
 });
 
+// Renders [text](url) as a link. Internal paths stay in the same tab; external URLs open in a new tab.
+function withLinks(text: string) {
+  const parts = text.split(/\[([^\]]+)\]\(([^)]+)\)/g);
+  const nodes: React.ReactNode[] = [];
+  const linkClass = "font-medium text-accent underline underline-offset-4";
+  for (let i = 0; i < parts.length; i += 3) {
+    nodes.push(parts[i]);
+    if (i + 2 < parts.length) {
+      const label = parts[i + 1];
+      const href = parts[i + 2];
+      const key = `${label}-${i}`;
+      nodes.push(
+        /^https?:\/\//.test(href) ? (
+          <a key={key} href={href} target="_blank" rel="noopener noreferrer" className={linkClass}>
+            {label}
+          </a>
+        ) : (
+          <Link key={key} href={href} className={linkClass}>
+            {label}
+          </Link>
+        )
+      );
+    }
+  }
+  return nodes;
+}
+
 function Answer({ blocks }: { blocks: Block[] }) {
   return (
     <div className="mt-4 space-y-4 text-base leading-7 text-muted">
@@ -18,11 +46,11 @@ function Answer({ blocks }: { blocks: Block[] }) {
         Array.isArray(block) ? (
           <ul key={i} className="list-disc space-y-2 pl-6">
             {block.map((line) => (
-              <li key={line}>{line}</li>
+              <li key={line}>{withLinks(line)}</li>
             ))}
           </ul>
         ) : (
-          <p key={i}>{block}</p>
+          <p key={i}>{withLinks(block)}</p>
         )
       )}
     </div>

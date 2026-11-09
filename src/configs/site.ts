@@ -43,12 +43,11 @@ export const site = {
 
   // First three are used in the hero mosaic; all six appear in the gallery.
   photos: [
-    { src: withBase("/photos/full-house-drone-shot-deck-side.jpg"), alt: "Placeholder photo 1" },
-    { src: withBase("/photos/top-deck-fire-pit-woman.jpg"), alt: "Top-Deck Scenic Firepit", fit: "contain" },
-    { src: withBase("/photos/photo-3.svg"), alt: "Placeholder photo 3" },
-    { src: withBase("/photos/photo-4.svg"), alt: "Placeholder photo 4" },
-    { src: withBase("/photos/photo-5.svg"), alt: "Placeholder photo 5" },
-    { src: withBase("/photos/photo-6.svg"), alt: "Placeholder photo 6" },
+    { src: withBase("/photos/full-house-drone-shot-deck-side.webp"), alt: "Placeholder photo 1" },
+    { src: withBase("/photos/mtn-views/cont-divide-blue-sky.webp"), alt: "Top-Deck Scenic Firepit" },
+    { src: withBase("/photos/rooms/living-room/living-1.webp"), alt: "Living room photo" },
+    { src: withBase("/photos/rooms/living-room/living-3.webp"), alt: "Living room photo" },
+    { src: withBase("/photos/rooms/upstairs-deck/grill-food-view.webp"), alt: "Deck, Outdoor Grill, And a View" },
   ],
 
   space: [
@@ -58,7 +57,7 @@ export const site = {
   ],
 
   // Portrait photo shown beside the "The Space" copy.
-  spacePhoto: { src: withBase("/photos/top-deck-fire-pit-woman.jpg"), alt: "Top-deck fire pit with a view" },
+  spacePhoto: { src: withBase("/photos/top-deck-fire-pit-woman.webp"), alt: "Top-deck fire pit with a view" },
 
   // Longer description used in the structured data.
   description:
@@ -103,11 +102,16 @@ export const site = {
 
   reviews: {
     average: 5.0,
-    count: 3,
     items: [
       { name: "Kris", date: "October 2026", platform: "Airbnb", text: "This place was exactly how described! Beautiful views, great central location, clean house, lots of space! Rheo was very responsive and accommodating." },
       { name: "Rory", location: "New Orleans, LA", date: "August 2026", platform: "Airbnb", text: "The house is fantastic. Situated close to world class hikes and great breweries. We had a few hiccups during our stay but Rheo was incredibly responsive and quick to address any concerns." },
       { name: "Nancy", location: "Boulder, CO", date: "August 2026", platform: "Airbnb", text: "Thanks so much! We had a lovely lovely stay, the pictures were exactly like the property and it was very accommodating. We saw deer, foxes and tons of other wildlife right from the back deck. Thanks so much again, Rheo for the wonderful stay! Would highly recommend to anyone!" },
+      { name: "Daryl", location: "Centerburg, Ohio", date: "July 2026", platform: "Airbnb", text: "We were looking for a good location with a private setting that we could use as a hub for daily hikes with our adult family.  Rheo & Lisa’s cabin is in a great location and turned out to be more than we had hoped for. Aside from the location in a beautiful mountain setting, Rollinsville is a quaint and authentic little town with an excellent woodfired pizza shop and a nice brewery with coffee shop and a distillery. We had great access to Roosevelt National Forest and Rocky Mountain National Park along with many other local spots that provided all degrees and levels of hikes that we were looking for. Rheo & Lisa were very responsive throughout the entire process and were very helpful in providing local tips for hikes and other things to do. I highly recommend their place if you are looking for a peaceful getaway with beautiful views away from the mainstream. Colorado is absolutely gorgeous in the mountains!! We would definitely visit and stay here again." },
+      { name: "Stephanie", location: "Newton, KS", date: "May 2026", platform: "Airbnb", text: "We traveled with some running friends for a nearby event. We felt right at home. We could not have asked for a better equipped and welcoming home. Very responsive and friendly hosts.\n\n This home is large enough that everyone had their privacy and is set up in a way that allowed all of us to come together for meals, hanging out together, playing games, etc. I can't stress enough how comfortable and well taken care of we felt!  I've been on plenty of trips and I can tell you these hosts know how to equip a home to make you feel great about staying there. They gave thought to details that would allow us to really enjoy our time there. Clear instructions, great accommodations!" },
+      { name: "Lada", location: "Garwood, NJ", date: "May 2026", platform: "Airbnb", text: "What a lovely, lovely home!  It had absolutely everything we needed, and the hot tub overlooking the Continental Divide was just spectacular. We didn’t plan on getting snowed in (18 inches in May!!) but between the pool table, the board games, the wood burning stove, and the hot tub, we had plenty to do. The beds were super comfortable, the kitchen was well stocked, the views were incredible, and Rheo was the perfect host. He answered all of our questions, and even arranged for a plow to dig us out!  Rollinsville is a tiny town, and thanks to some gift cards that Rheo left on the counter for us, we were able to visit a few local establishments. The property is beautiful, the wildlife is plentiful (deer, birds, and a moose!), and we hope to be back someday!" },
+      { name: "Ricky", location: "Rockville, MD", date: "January 2026", platform: "Airbnb", text: "I recently stayed at and had an excellent experience. The location was perfect, allowing easy access to local attractions while providing a peaceful atmosphere. The room was clean, comfortable, and well-decorated, making it feel like a home away from home.\n\n The hosts were incredibly welcoming and attentive, making sure all my needs were met.\n\n Overall, I highly recommend this stay to anyone looking for a cozy and enjoyable stay. I would definitely return!" },
+      { name: "L", location: "Boerne, TX", date: "December 2026", platform: "Airbnb", text: "We’re grateful for our time at Pinehurst Lodge; the view was breathtaking and it was a perfect set up with ample space for our family of 5 adults and one toddler. Rheo and his team were extremely responsive and helpful to us ; our time was cut short due to  power outages in  the area and they promptly refunded us. We would have loved to have stayed longer and hope to return in the future." },
+      { name: "Tara", location: "Minneapolis, MN", date: "October 2026", platform: "Airbnb", text: "I have stayed in a number of airbnbs and this was my favorite.  The pictures were very accurate and the view and privacy are exactly as they appear in the pictures.  Very spacious.  I went with three friends for a girl's weekend.  The kitchen was excellent, we cooked gourmet food two of the nights.  One night we walked the short distance to the really quaint town (less than 10 min walk).  We had pizza at Toss: Woodfire Eatery that was outstanding and then went next door to the Gold Dirt Distillery for Cocktails.  There is a ton of hiking nearby - we hiked Lower Crater Lake ~7mi and moderate elevation.  We drove the 40 min into Boulder for brunch one morning and walked around Pearl St.  The hot tub was divine after a hike and cocktails watching the sunset was breath taking.  And the beds were really comfortable (and I am normally picky!). Thank you Rheo!!" },
     ],
   },
 
