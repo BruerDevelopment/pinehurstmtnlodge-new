@@ -106,6 +106,7 @@ export const accommodationSections: AccommodationSection[] = [
           "Granitestone nonstick cookware, glassware, and wine glasses",
         ],
         photos: [
+          photo("kitchen/upstairs-professional-1", "Full kitchen view"),
           photo("kitchen-main-1", "Upstairs kitchen with stainless appliances and granite counters"),
           photo("kitchen-fridge", "Upstairs stainless steel refrigerator and double ovens"),
           photo("dining-area", "Dining table in the open living and dining area"),
@@ -123,9 +124,9 @@ export const accommodationSections: AccommodationSection[] = [
           "Another microwave"
         ],
         photos: [
-          photo("kitchen-downstairs-1", "Downstairs kitchen with white cabinets and a round dining table"),
           photo("kitchen-downstairs-2", "Downstairs kitchen with white cabinets, range, and microwave"),
           photo("kitchen-downstairs-3", "Downstairs kitchen with white cabinets, range, and microwave"),
+          photo("kitchen-downstairs-1", "Downstairs kitchen with white cabinets and a round dining table"),
         ],
       },
       {
@@ -170,12 +171,24 @@ export const accommodationSections: AccommodationSection[] = [
     ],
   },
   {
-    id: "crafting",
-    title: "Scrapbooking & Crafting Setup",
-    intro: "Plenty of work surfaces. Foldable tables can be set up before your stay on request. They are always available, and their location is in the welcome package.",
+    id: "games",
+    title: "Games, Activities & Crafting",
+    intro: "A pool table, a 7-person hot tub, board games, and Smart TVs for streaming.\n\n Foldable tables can be set up before your stay on request. They are always available, and their location is in the welcome package.",
     cards: [
       {
-        title: "Work Areas",
+        title: "7-Person Hot Tub",
+        body: "An Arctic Spas hot tub on the deck, cleaned before every stay, with the Continental Divide, the surrounding mountains, and the Rollinsville valley in view. Please read the hot tub rules on our FAQs page before you use it.",
+        features: ["Arctic Spas, 7 people", "Cleaned before every stay", "Maintenance supplies in the welcome package"],
+        photos: [photo("hot-tub", "Hot tub on the deck among pine trees")],
+      },
+      {
+        title: "Board Games",
+        body: "A shelf of board games and puzzles for rainy afternoons and family nights.",
+        features: ["Board games and puzzles", "Pool table in the downstairs game room"],
+        photos: [photo("game-shelf", "Shelf with board games and puzzles")],
+      },
+      {
+        title: "Crafting / Work Areas",
         body: "Everything you need for scrapbooking and crafting.",
         features: [
           "6 tables (3' x 6')",
@@ -191,25 +204,6 @@ export const accommodationSections: AccommodationSection[] = [
           craft("craft-5", "Craft area with a pool table and a desk setup"),
           craft("craft-6", "Magnifying desk lamp on a craft table"),
         ],
-      },
-    ],
-  },
-  {
-    id: "games",
-    title: "Games & Activities",
-    intro: "A pool table, a 7-person hot tub, board games, and Smart TVs for streaming.",
-    cards: [
-      {
-        title: "7-Person Hot Tub",
-        body: "An Arctic Spas hot tub on the deck, cleaned before every stay, with the Continental Divide, the surrounding mountains, and the Rollinsville valley in view. Please read the hot tub rules on our FAQs page before you use it.",
-        features: ["Arctic Spas, 7 people", "Cleaned before every stay", "Maintenance supplies in the welcome package"],
-        photos: [photo("hot-tub", "Hot tub on the deck among pine trees")],
-      },
-      {
-        title: "Board Games",
-        body: "A shelf of board games and puzzles for rainy afternoons and family nights.",
-        features: ["Board games and puzzles", "Pool table in the downstairs game room"],
-        photos: [photo("game-shelf", "Shelf with board games and puzzles")],
       },
     ],
   },

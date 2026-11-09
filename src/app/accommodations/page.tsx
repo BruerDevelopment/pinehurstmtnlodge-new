@@ -50,7 +50,10 @@ export default function AccommodationsPage() {
 
       {accommodationSections.map((section) => (
         <Section key={section.id} id={section.id} title={section.title}>
-          {section.intro && <p className="mb-8 max-w-3xl text-lg leading-8 text-muted">{section.intro}</p>}
+          {/* whitespace-pre-line keeps \n line breaks in intro text as paragraph breaks. */}
+          {section.intro && (
+            <p className="mb-8 max-w-3xl whitespace-pre-line text-lg leading-8 text-muted">{section.intro}</p>
+          )}
 
           <div className="grid gap-6 lg:grid-cols-2">
             {section.cards.map((card) => (

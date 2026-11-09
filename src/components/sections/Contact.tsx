@@ -21,9 +21,14 @@ export default function Contact() {
         <dl className="flex flex-col gap-4 text-ink md:items-end md:text-right">
           <div>
             <dt className="text-xs uppercase tracking-wide text-muted">Follow along</dt>
-            <dd>
+            <dd className="py-1">
               <a href={site.instagram} className="hover:text-accent" target="_blank" rel="noopener noreferrer">
                 Instagram
+              </a>
+            </dd>
+            <dd className="py-1">
+              <a href={site.facebook} className="hover:text-accent" target="_blank" rel="noopener noreferrer">
+                Facebook
               </a>
             </dd>
           </div>

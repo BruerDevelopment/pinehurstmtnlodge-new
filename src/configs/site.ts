@@ -19,6 +19,7 @@ export const site = {
   phone: "(000) 000-0000",
   email: "bigpinehurst@gmail.com",
   instagram: "https://www.instagram.com/",
+  facebook:"https://www.facebook.com/p/Pinehurst-Lodge-Colorado-61557472377926/",
 
   // Used by the sitemap, robots.txt, llms.txt, and structured data. Follows DEPLOY_TARGET.
   siteUrl: absoluteUrl("/"),
@@ -52,7 +53,7 @@ export const site = {
 
   space: [
     "Wake up to Continental Divide views, grab coffee on the deck, then spend the day skiing, hiking, or exploring the mountain towns nearby. Back at Pinehurst Mtn Lodge, soak in the private covered hot tub, challenge friends to a game of pool, or gather around the fireplace after dinner. With two living rooms, two fully equipped kitchens, and plenty of space to spread out, it's an ideal home for families, friends, and unforgettable Colorado getaways.",
-    "Whether you're planning a ski trip, hiking adventure, family vacation, or relaxing mountain escape, Pinehurst Lodge is designed to bring everyone together while giving everyone room to spread out.",
+    "Whether you're planning a ski trip, hiking adventure, family vacation, or relaxing mountain escape, Pinehurst Lodge is designed to bring everyone together while also having room to spread out.",
     "Located in the peaceful mountain community of Rollinsville, you'll enjoy panoramic mountain views, fresh alpine air, and easy access to Colorado's outdoor adventures—all from the comfort of a spacious, amenity-filled home.",
   ],
 
