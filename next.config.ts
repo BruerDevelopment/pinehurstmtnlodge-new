@@ -3,8 +3,9 @@ import type { NextConfig } from "next";
 // Build target switch:
 //   DEPLOY_TARGET=github  -> GitHub Pages preview, served under /pinehurstmtnlodge-new
 //   (unset)               -> custom domain, served from the root
-const basePath = "";
-const siteOrigin = "https://pinehurstmtnlodge.com";
+const isGithub = true;
+const basePath = isGithub ? "/pinehurstmtnlodge-new" : "";
+const siteOrigin = isGithub ? "https://bruerdevelopment.github.io" : "https://pinehurstmtnlodge.com";
 
 const nextConfig: NextConfig = {
   output: "export",
