@@ -113,7 +113,7 @@ export const accommodationSections: AccommodationSection[] = [
       },
       {
         title: "Downstairs Kitchen",
-        body: "A secondary kitchen with a second set of everything needed for a thanksgiving meal.",
+        body: "A secondary kitchen with a second set of everything needed for a Thanksgiving meal.",
         features: [
           "A large fridge with ample freazer space",
           "Coffee maker and toaster oven",
