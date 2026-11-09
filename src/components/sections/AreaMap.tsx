@@ -125,7 +125,8 @@ export default function AreaMap({ articles = [] }: { articles?: ArticleSummary[]
 
   return (
     <Section id="map" eyebrow="Explore" title="Around the Lodge">
-      <div className="relative overflow-hidden rounded-2xl border border-line bg-surface">
+      {/* isolate keeps Leaflet's high z-index layers inside the map, so they stay under the sticky header. */}
+      <div className="relative isolate overflow-hidden rounded-2xl border border-line bg-surface">
         <div ref={ref} className="h-[28rem] w-full md:h-[36rem]" role="region" aria-label="Map of the area around Pinehurst Mountain Lodge" />
         {(Object.keys(hints) as Corner[]).map((corner) => {
           const hint = hints[corner];

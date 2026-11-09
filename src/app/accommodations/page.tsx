@@ -52,23 +52,23 @@ export default function AccommodationsPage() {
         <Section key={section.id} id={section.id} title={section.title}>
           {/* whitespace-pre-line keeps \n line breaks in intro text as paragraph breaks. */}
           {section.intro && (
-            <p className="mb-8 max-w-3xl whitespace-pre-line text-lg leading-8 text-muted">{section.intro}</p>
+            <p className="mb-8 max-w-6xl whitespace-pre-line text-lg leading-8 text-muted">{section.intro}</p>
           )}
-
+          {section.link && (
+            <Link
+              href={section.link.href}
+              className="mb-8 inline-block font-medium text-accent underline underline-offset-4"
+            >
+              {section.link.label}
+            </Link>
+          )}
           <div className="grid gap-6 lg:grid-cols-2">
             {section.cards.map((card) => (
               <RoomCard key={card.title} card={card} />
             ))}
           </div>
 
-          {section.link && (
-            <Link
-              href={section.link.href}
-              className="mt-8 inline-block font-medium text-accent underline underline-offset-4"
-            >
-              {section.link.label}
-            </Link>
-          )}
+          
         </Section>
       ))}
 

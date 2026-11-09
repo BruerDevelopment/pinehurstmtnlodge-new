@@ -18,7 +18,7 @@ export const site = {
   copyright: "© 2026 Pinehurst Mtn Lodge",
   phone: "(000) 000-0000",
   email: "bigpinehurst@gmail.com",
-  instagram: "https://www.instagram.com/",
+  instagram: "https://www.instagram.com/pinehurstmtnlodge",
   facebook:"https://www.facebook.com/p/Pinehurst-Lodge-Colorado-61557472377926/",
 
   // Used by the sitemap, robots.txt, llms.txt, and structured data. Follows DEPLOY_TARGET.
@@ -150,11 +150,7 @@ export const site = {
     },
   ],
 
-  // Primary booking button, shown as its own call to action.
-  directBooking: {
-    label: "Book Direct",
-    href: "https://checkout.lodgify.com/pinehurstmtnlodge/846898/reservation?currency=USD&adults=1",
-  },
+  
 
   // About page: two family photos, the intro, each owner's profile, and a closing note.
   about: {
@@ -195,9 +191,13 @@ export const site = {
     intro: "Trails, lakes, local food, and history around Rollinsville, written by the lodge team.",
     categories: ["Local Guide", "Hiking", "Fishing", "Food & Drink", "History & Culture", "Crafts"],
   },
-
+  // Primary booking button, shown as its own call to action.
+  directBooking: {
+    label: "Book Direct",
+    href: "https://checkout.lodgify.com/pinehurstmtnlodge/846898/reservation?currency=USD&adults=1",
+  },
   bookingLinks: [
-    { label: "Book on Airbnb", href: "#" },
-    { label: "Book on Vrbo", href: "#" },
+    { label: "Book on Airbnb", href: "https://www.airbnb.com/rooms/1043540721907281297" },
+    { label: "Book on Vrbo", href: "https://www.vrbo.com/5114679" },
   ],
 };

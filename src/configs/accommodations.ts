@@ -22,7 +22,7 @@ export type AccommodationSection = {
 
 // Step-free access note, shown near the top of the accommodations page.
 export const accessNote = {
-  title: "Step-Free Access & Stairs",
+  title: "Accessibility Access & Stairs",
   intro:
     "Guests with mobility needs should read this before booking. The main entrance has a small porch with two steps and a handrail.",
   points: [
