@@ -4,10 +4,12 @@ import GalleryLightbox from "@/components/hero/GalleryLightbox";
 
 export default function HeroMosaic() {
   const [main, top, bottom] = site.photos;
-
   // "contain" letterboxes portrait photos on the page background instead of cropping them.
   const fitClass = (photo: { fit?: string }) =>
     photo.fit === "contain" ? "object-contain" : "object-cover";
+  const fitMain = fitClass(main as {src: string; alt: string; fit?: string})
+  const fitTop = fitClass(top as {src: string; alt: string; fit?: string})
+  const fitBottom = fitClass(bottom as {src: string; alt: string; fit?: string})
 
   return (
     <div className="relative">
@@ -19,16 +21,16 @@ export default function HeroMosaic() {
             fill
             priority
             sizes="(min-width: 768px) 66vw, 100vw"
-            className={fitClass(main)}
+            className={fitMain}
           />
         </div>
 
         <div className="hidden md:grid md:grid-rows-2 md:gap-2">
           <div className="relative bg-line">
-            <Image src={top.src} alt={top.alt} fill sizes="33vw" className={fitClass(top)} />
+            <Image src={top.src} alt={top.alt} fill sizes="33vw" className={fitTop} />
           </div>
           <div className="relative bg-line">
-            <Image src={bottom.src} alt={bottom.alt} fill sizes="33vw" className={fitClass(bottom)} />
+            <Image src={bottom.src} alt={bottom.alt} fill sizes="33vw" className={fitBottom} />
           </div>
         </div>
       </div>

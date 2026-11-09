@@ -10,13 +10,13 @@ export const metadata = pageMetadata({
 });
 
 export default function ReviewsPage() {
-  const { average, count, items } = site.reviews;
+  const { average, items } = site.reviews;
 
   return (
     <main className="flex-1">
       <Section eyebrow="Guest Reviews" title="All Reviews">
         <p className="mb-6 text-muted">
-          <span className="font-semibold text-ink">{average.toFixed(1)} ★</span> · {count} reviews
+          <span className="font-semibold text-ink">{average.toFixed(1)} ★</span> · {items.length} reviews
         </p>
 
         <div className="grid gap-4 md:grid-cols-2">
