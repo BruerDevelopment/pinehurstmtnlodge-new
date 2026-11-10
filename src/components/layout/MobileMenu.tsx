@@ -29,7 +29,8 @@ export default function MobileMenu({ items }: { items: MenuItem[] }) {
           <ul className="flex flex-col gap-4 text-base font-medium text-ink">
             {items.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} onClick={() => setOpen(false)}>
+                {/* The link fills the whole row, so tapping anywhere on the row navigates. */}
+                <Link href={item.href} onClick={() => setOpen(false)} className="block w-full py-2">
                   {item.label}
                 </Link>
               </li>
