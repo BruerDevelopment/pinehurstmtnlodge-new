@@ -191,7 +191,7 @@ export const site = {
   thingsToDo: {
     heading: "Your local's guide to the area around Pinehurst Mtn Lodge",
     intro: "Trails, lakes, local food, and history around Rollinsville, written by the lodge team.",
-    categories: ["Local Guide", "Hiking", "Fishing", "Food & Drink", "History & Culture", "Crafts"],
+    categories: ["Local Guide", "Hiking", "Fishing", "Food & Drink", "History & Culture", "Crafts", "Videos"],
   },
   // Primary booking button, shown as its own call to action.
   directBooking: {

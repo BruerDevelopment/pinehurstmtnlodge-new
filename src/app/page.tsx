@@ -11,8 +11,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { lodgingJsonLd } from "@/configs/seo";
 import { pageMetadata } from "@/configs/metadata";
 import { site } from "@/configs/site";
-import { toSummary } from "@/lib/article-types";
-import { getAllArticles } from "@/lib/articles";
+import { getAllPosts } from "@/lib/articles";
 
 // The home page sits outside the title template, so its full title is set here.
 export const metadata = {
@@ -26,10 +25,9 @@ export const metadata = {
 
 export default function Home() {
   // Featured guides first, then newest; show three below the map.
-  const guides = [...getAllArticles()]
+  const guides = [...getAllPosts()]
     .sort((a, b) => Number(b.featured) - Number(a.featured))
-    .slice(0, 3)
-    .map(toSummary);
+    .slice(0, 3);
 
   return (
     <main className="flex-1">

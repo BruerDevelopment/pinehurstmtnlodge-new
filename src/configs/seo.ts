@@ -1,5 +1,5 @@
 import { absoluteUrl, site } from "@/configs/site";
-import { type Article, articleHref } from "@/lib/article-types";
+import { type Article, type ArticleSummary, articleHref } from "@/lib/article-types";
 import type { FaqGroup } from "@/configs/faqs";
 
 // Sums bed counts across all rooms, e.g. King x1, Queen x3, for the top-level bed summary.
@@ -114,6 +114,23 @@ export function faqJsonLd(groups: FaqGroup[]) {
     }))
   );
   return { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: questions };
+}
+
+// VideoObject structured data for a video post. The embed is YouTube's privacy-enhanced domain.
+export function videoJsonLd(video: ArticleSummary) {
+  const seconds = video.durationSeconds ?? 0;
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: video.title,
+    description: video.description,
+    thumbnailUrl: [absoluteUrl(video.cover)],
+    uploadDate: video.date,
+    duration: `PT${Math.floor(seconds / 60)}M${seconds % 60}S`,
+    embedUrl: `https://www.youtube-nocookie.com/embed/${video.videoId}`,
+    contentUrl: video.href,
+    author: { "@type": "Person", name: video.author },
+  };
 }
 
 // Article structured data for each guide page.

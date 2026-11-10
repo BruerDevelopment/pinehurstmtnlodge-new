@@ -2,8 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { withBase } from "@/configs/site";
 import { type ArticleSummary, formatDate } from "@/lib/article-types";
+import VideoCard from "@/components/articles/VideoCard";
 
 export default function ArticleCard({ article }: { article: ArticleSummary }) {
+  if (article.kind === "video") return <VideoCard article={article} />;
+
   return (
     <Link
       href={article.href}

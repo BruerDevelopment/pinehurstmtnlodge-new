@@ -1,10 +1,19 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
-import { type Article, type Heading, slugify, toSummary } from "@/lib/article-types";
+import {
+  type Article,
+  type ArticleSummary,
+  type Heading,
+  type VideoPost,
+  slugify,
+  toSummary,
+  videoToSummary,
+} from "@/lib/article-types";
 
-// Server-only: reads content/articles at build time (static export).
+// Server-only: reads content/articles and content/videos at build time (static export).
 const DIR = path.join(process.cwd(), "content", "articles");
+const VIDEO_DIR = path.join(process.cwd(), "content", "videos");
 const WORDS_PER_MINUTE = 200;
 
 function extractHeadings(body: string): Heading[] {
@@ -61,8 +70,47 @@ function load(): Article[] {
 
 const ARTICLES = load();
 
+// Video posts: one markdown file per video, frontmatter only.
+function loadVideos(): VideoPost[] {
+  if (!fs.existsSync(VIDEO_DIR)) return [];
+  return fs
+    .readdirSync(VIDEO_DIR)
+    .filter((file) => file.endsWith(".md"))
+    .map((file): VideoPost => {
+      const { data } = matter(fs.readFileSync(path.join(VIDEO_DIR, file), "utf8"));
+      const seconds = Number(data.durationSeconds);
+      if (!Number.isFinite(seconds) || seconds <= 0) {
+        throw new Error(`content/videos/${file}: "durationSeconds" must be a positive number`);
+      }
+      return {
+        videoId: requireString(data, "videoId", file),
+        title: requireString(data, "title", file),
+        subtitle: requireString(data, "subtitle", file),
+        description: requireString(data, "description", file),
+        category: requireString(data, "category", file),
+        author: requireString(data, "author", file),
+        date: requireString(data, "date", file),
+        durationSeconds: seconds,
+        cover: requireString(data, "cover", file),
+        coverAlt: requireString(data, "coverAlt", file),
+        featured: data.featured === true,
+      };
+    });
+}
+
+const VIDEOS = loadVideos();
+
 export function getAllArticles(): Article[] {
   return ARTICLES;
+}
+
+export function getAllVideos(): ArticleSummary[] {
+  return VIDEOS.map(videoToSummary);
+}
+
+// Articles and videos together, newest first. Used by the listings.
+export function getAllPosts(): ArticleSummary[] {
+  return [...ARTICLES.map(toSummary), ...getAllVideos()].sort((a, b) => b.date.localeCompare(a.date));
 }
 
 export function getArticleBySlug(segments: string[]): Article | undefined {

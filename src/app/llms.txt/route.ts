@@ -1,7 +1,7 @@
 import { absoluteUrl, site } from "@/configs/site";
 import { sitePages } from "@/configs/seo";
 import { articleHref } from "@/lib/article-types";
-import { getAllArticles } from "@/lib/articles";
+import { getAllArticles, getAllVideos } from "@/lib/articles";
 
 // Plain-text summary for AI agents, served at /llms.txt.
 export const dynamic = "force-static";
@@ -33,6 +33,12 @@ ${pages}
 
 ${getAllArticles()
   .map((article) => `- [${article.title}](${absoluteUrl(articleHref(article))}): ${article.description}`)
+  .join("\n")}
+
+## Local guide videos
+
+${getAllVideos()
+  .map((video) => `- [${video.title}](${video.href}): ${video.description}`)
   .join("\n")}
 
 ## Amenities

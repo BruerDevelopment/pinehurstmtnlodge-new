@@ -21,7 +21,9 @@ export type Article = {
 };
 
 // Plain, serializable shape passed to client components.
+// Videos reuse this shape: kind "video" plus a YouTube videoId and durationLabel.
 export type ArticleSummary = {
+  kind: "article" | "video";
   href: string;
   title: string;
   subtitle: string;
@@ -30,6 +32,24 @@ export type ArticleSummary = {
   author: string;
   date: string;
   readingMinutes: number;
+  durationLabel?: string;
+  durationSeconds?: number;
+  videoId?: string;
+  cover: string;
+  coverAlt: string;
+  featured: boolean;
+};
+
+// A video post: no article page. Its href is the YouTube watch URL, used for new-tab and no-JS fallback.
+export type VideoPost = {
+  videoId: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  category: string;
+  author: string;
+  date: string;
+  durationSeconds: number;
   cover: string;
   coverAlt: string;
   featured: boolean;
@@ -47,8 +67,34 @@ export function articleHref(article: Pick<Article, "routePath">): string {
   return `/area-guide/articles/${article.routePath}`;
 }
 
+// "51 min watch" from a duration in seconds.
+export function durationLabel(seconds: number): string {
+  return `${Math.max(1, Math.round(seconds / 60))} min watch`;
+}
+
+export function videoToSummary(video: VideoPost): ArticleSummary {
+  return {
+    kind: "video",
+    href: `https://www.youtube.com/watch?v=${video.videoId}`,
+    title: video.title,
+    subtitle: video.subtitle,
+    description: video.description,
+    category: video.category,
+    author: video.author,
+    date: video.date,
+    readingMinutes: Math.max(1, Math.round(video.durationSeconds / 60)),
+    durationLabel: durationLabel(video.durationSeconds),
+    durationSeconds: video.durationSeconds,
+    videoId: video.videoId,
+    cover: video.cover,
+    coverAlt: video.coverAlt,
+    featured: video.featured,
+  };
+}
+
 export function toSummary(article: Article): ArticleSummary {
   return {
+    kind: "article",
     href: articleHref(article),
     title: article.title,
     subtitle: article.subtitle,

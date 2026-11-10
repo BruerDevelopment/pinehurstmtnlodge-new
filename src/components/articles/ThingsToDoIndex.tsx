@@ -3,18 +3,22 @@ import ArticleBrowser from "@/components/articles/ArticleBrowser";
 import ArticleCard from "@/components/articles/ArticleCard";
 import AreaMap from "@/components/sections/AreaMap";
 import Section from "@/components/ui/Section";
+import JsonLd from "@/components/seo/JsonLd";
+import { videoJsonLd } from "@/configs/seo";
 import { site } from "@/configs/site";
-import { getAllArticles } from "@/lib/articles";
-import { toSummary } from "@/lib/article-types";
+import { getAllPosts, getAllVideos } from "@/lib/articles";
 
-// Shared by /things-to-do and the legacy /area-guide URLs.
+// Shared by /things-to-do and the legacy /area-guide URLs. Lists articles and video posts.
 export default function ThingsToDoIndex() {
-  const articles = getAllArticles().map(toSummary);
+  const articles = getAllPosts();
   const featured = articles.filter((a) => a.featured).slice(0, 3);
   const categories = site.thingsToDo.categories.filter((c) => articles.some((a) => a.category === c));
 
   return (
     <main className="flex-1">
+      {getAllVideos().map((video) => (
+        <JsonLd key={video.videoId} data={videoJsonLd(video)} />
+      ))}
       <section className="mx-auto max-w-6xl px-4 pt-12 md:px-8">
         <p className="text-sm font-medium uppercase tracking-widest text-accent">Explore</p>
         <h1 className="mt-2 max-w-3xl text-4xl font-semibold tracking-tight text-ink md:text-5xl">
