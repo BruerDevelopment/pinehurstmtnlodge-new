@@ -188,7 +188,7 @@ export const accommodationSections: AccommodationSection[] = [
       {
         title: "Games, Books & Play Area",
         body: "A shelf of board games and puzzles for rainy afternoons and family nights.",
-        features: ["Board games and puzzles", "Pool table in the downstairs game room"],
+        features: ["Board games and puzzles", "Fairy play area"],
         photos: [
           photo("games-toys/game-shelf", "Shelf with board games and puzzles"),
           photo("games-toys/fairies", "Fairies play area"),

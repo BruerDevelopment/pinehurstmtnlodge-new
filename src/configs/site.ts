@@ -46,7 +46,7 @@ export const site = {
   photos: [
     { src: withBase("/photos/mtn-views/cont-divide-blue-sky-w-snow.webp"), alt: "Top-Deck Scenic Firepit" },
     { src: withBase("/photos/full-house/full-house-drone-2.webp"), alt: "Placeholder photo 1" },
-    { src: withBase("/photos/rooms/downstairs-deck-hot-tub/hot-tub.webp"), alt: "Living room photo" },
+    { src: withBase("/photos/rooms/downstairs-deck-hot-tub/hot-tub-1.webp"), alt: "Living room photo" },
     { src: withBase("/photos/rooms/upstairs-main-space/living-3.webp"), alt: "Living room photo" },
     { src: withBase("/photos/rooms/upstairs-deck/deck-w-people.webp"), alt: "Deck, Outdoor Grill, And a View" },
     { src: withBase("/photos/rooms/upstairs-primary/upstairs-primary-2.webp"), alt: "Living room photo" },
