@@ -9,7 +9,7 @@ updated: "2024-07-03"
 path: "guides/rollinsville"
 cover: "/photos/articles/rollinsville-cover.jpg"
 coverAlt: "Placeholder cover for the Discover Rollinsville guide"
-featured: true
+featured: false
 ---
 
 Rollinsville is a small mountain town in the Colorado Rockies, a short drive from Boulder and Denver. It is a quiet place to start a trip, with trails, snow sports, fishing, and a handful of local businesses within a few minutes of the lodge.

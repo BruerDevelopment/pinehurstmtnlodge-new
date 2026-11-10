@@ -9,5 +9,5 @@ platform: "instagram"
 videoId: "DeAuQSSsF-A"
 cover: "/photos/articles/rollinsville-instagram-reel.webp"
 coverAlt: "Aerial view of a red house in a pine forest, with the text Ever heard of Rollinsville, CO?"
-featured: false
+featured: true
 ---
