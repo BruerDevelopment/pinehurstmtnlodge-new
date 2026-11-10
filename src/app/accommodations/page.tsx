@@ -12,7 +12,7 @@ import { site } from "@/configs/site";
 export const metadata = pageMetadata({
   title: "Accommodations & Amenities",
   description:
-    "Four bedrooms, two kitchens, two gathering spaces, a 7-person hot tub, a pool table, and a craft area at Pinehurst Mtn Lodge in Rollinsville, Colorado.",
+    "Four bedrooms, two kitchens, two gathering spaces, a 6-person hot tub, a pool table, and a craft area at Pinehurst Mtn Lodge in Rollinsville, Colorado.",
   path: "/accommodations",
 });
 
@@ -30,7 +30,7 @@ export default function AccommodationsPage() {
         <p className="text-sm font-medium uppercase tracking-widest text-accent">{site.name}</p>
         <h1 className="mt-2 text-4xl font-semibold tracking-tight text-ink md:text-5xl">Accommodations &amp; Amenities</h1>
         <p className="mt-4 max-w-8xl text-lg leading-8 text-muted">
-          Four bedrooms, two fully equipped kitchens, two gathering spaces, and a 7-person hot tub, with views of the
+          Four bedrooms, two fully equipped kitchens, two gathering spaces, and a 6-person hot tub, with views of the
           Continental Divide.
         </p>
 

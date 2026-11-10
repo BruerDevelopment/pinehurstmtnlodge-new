@@ -52,7 +52,7 @@ const downstairsItems: { caption: string; alt: string }[] = [
 // File names are folder-01, folder-02, ... in the same order as the items above.
 const toPhotos = (folder: string, items: { caption: string; alt: string }[]): GalleryPhoto[] =>
   items.map((item, i) => ({
-    src: withBase(`/photos/rooms/kitchen/${folder}-${String(i + 1).padStart(2, "0")}.webp`),
+    src: withBase(`/photos/rooms/kitchen/guide-photos/${folder}-${String(i + 1).padStart(2, "0")}.webp`),
     alt: item.alt,
     caption: item.caption,
   }));

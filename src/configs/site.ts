@@ -44,11 +44,13 @@ export const site = {
 
   // First three are used in the hero mosaic; all six appear in the gallery.
   photos: [
-    { src: withBase("/photos/full-house-drone-shot-deck-side.webp"), alt: "Placeholder photo 1" },
-    { src: withBase("/photos/mtn-views/cont-divide-blue-sky.webp"), alt: "Top-Deck Scenic Firepit" },
-    { src: withBase("/photos/rooms/living-room/living-1.webp"), alt: "Living room photo" },
-    { src: withBase("/photos/rooms/living-room/living-3.webp"), alt: "Living room photo" },
-    { src: withBase("/photos/rooms/upstairs-deck/grill-food-view.webp"), alt: "Deck, Outdoor Grill, And a View" },
+    { src: withBase("/photos/mtn-views/cont-divide-blue-sky-w-snow.webp"), alt: "Top-Deck Scenic Firepit" },
+    { src: withBase("/photos/full-house/full-house-drone-2.webp"), alt: "Placeholder photo 1" },
+    { src: withBase("/photos/rooms/downstairs-deck-hot-tub/hot-tub.webp"), alt: "Living room photo" },
+    { src: withBase("/photos/rooms/upstairs-main-space/living-3.webp"), alt: "Living room photo" },
+    { src: withBase("/photos/rooms/upstairs-deck/deck-w-people.webp"), alt: "Deck, Outdoor Grill, And a View" },
+    { src: withBase("/photos/rooms/upstairs-primary/upstairs-primary-2.webp"), alt: "Living room photo" },
+    { src: withBase("/photos/rooms/pool-table/pool-table-w-people.webp"), alt: "Living room photo" },
   ],
 
   space: [
@@ -62,7 +64,7 @@ export const site = {
 
   // Longer description used in the structured data.
   description:
-    "Luxury 4-bedroom mountain retreat in Rollinsville, Colorado, overlooking the Continental Divide. Features a 7-person Arctic Spas hot tub, two fully equipped kitchens, two living areas, pool table, garage parking, and dedicated crafting or scrapbooking workspaces.",
+    "Luxury 4-bedroom mountain retreat in Rollinsville, Colorado, overlooking the Continental Divide. Features a 6-person Arctic Spas hot tub, two fully equipped kitchens, two living areas, pool table, garage parking, and dedicated crafting or scrapbooking workspaces.",
 
   // Sleeping details used in the structured data. Sleeping spots total 8 against a maxOccupancy of 6.
   property: {
@@ -87,7 +89,7 @@ export const site = {
   },
 
   amenities: [
-    "Arctic Spas 7-Person Hot Tub",
+    "Arctic Spas 6-Person Hot Tub",
     "Two Fully Equipped Kitchens",
     "Pool Table",
     "Wood-Burning Fireplace",

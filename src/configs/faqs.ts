@@ -94,7 +94,7 @@ export const faqGroups: FaqGroup[] = [
       {
         question: "What are the rules for using the hot tub?",
         answer: [
-          "To keep the 7-person Arctic Spas hot tub clean and safe, please follow these guidelines:",
+          "To keep the 6-person Arctic Spas hot tub clean and safe, please follow these guidelines:",
           [
             "No glass is allowed in or around the hot tub area at any time.",
             "Maximum occupancy is 6 people at one time.",
@@ -222,11 +222,11 @@ export const faqGroups: FaqGroup[] = [
         answer: [
           "There are a few shops within a short drive:",
           [
+            "Rollinsville itself is best known for artisan food, drink and crafts, including Gold Dirt Distillery, Howlin’ Wind Brewery, Toss Wood-Fired Pizza, Salto Coffee Roasters, MycoMindful Mushrooms & Yerba Cha, as well as many other artisans. There is a small gift shop located at Salto Coffee/Howlin’ Wind Brewery.",
+            "Nederland: local artists make handmade pieces, Nature’s Own Rock Shop is on 1st Street, and the Carousel of Happiness is in the Nederland shopping center.",
             "Central City: the Central City Opera gift shop, at 120 Eureka Street, sells opera memorabilia and unique gifts. Hours vary with the festival and performance schedule.",
             "Central City and Black Hawk: The Emporium carries Irish and Celtic gifts, and its antiques and local history books cover the area's mining and pioneer past.",
-            "Nederland: local artists make handmade pieces, and the Carousel of Happiness is in the Nederland shopping center.",
-          ],
-          "Rollinsville itself is best known for food and drink, including Gold Dirt Distillery.",
+          ]
         ],
       },
       {
