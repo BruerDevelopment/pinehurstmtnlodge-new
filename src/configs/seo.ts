@@ -116,8 +116,9 @@ export function faqJsonLd(groups: FaqGroup[]) {
   return { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: questions };
 }
 
-// VideoObject structured data for a video post. The embed is YouTube's privacy-enhanced domain.
+// VideoObject structured data for a video post. Reels have no length, so they omit duration and contentUrl.
 export function videoJsonLd(video: ArticleSummary) {
+  const isReel = video.platform === "instagram";
   const seconds = video.durationSeconds ?? 0;
   return {
     "@context": "https://schema.org",
@@ -126,9 +127,13 @@ export function videoJsonLd(video: ArticleSummary) {
     description: video.description,
     thumbnailUrl: [absoluteUrl(video.cover)],
     uploadDate: video.date,
-    duration: `PT${Math.floor(seconds / 60)}M${seconds % 60}S`,
-    embedUrl: `https://www.youtube-nocookie.com/embed/${video.videoId}`,
-    contentUrl: video.href,
+    ...(isReel
+      ? { embedUrl: `https://www.instagram.com/reel/${video.videoId}/embed/` }
+      : {
+          duration: `PT${Math.floor(seconds / 60)}M${seconds % 60}S`,
+          embedUrl: `https://www.youtube-nocookie.com/embed/${video.videoId}`,
+          contentUrl: video.href,
+        }),
     author: { "@type": "Person", name: video.author },
   };
 }

@@ -6,32 +6,30 @@ import VideoModal from "@/components/ui/VideoModal";
 import { withBase } from "@/configs/site";
 import { type ArticleSummary, formatDate } from "@/lib/article-types";
 
-// A video post card. A plain click opens the player on the page. Ctrl/Cmd/Shift-click
-// or a middle-click follows the link to YouTube in a new tab, and so does a visitor without JavaScript.
+// A video post card. The card is a button, not a link, so tapping it only opens the player on the page.
+// The link to the original platform lives inside the player, as an explicit choice. That keeps phones
+// from handing the tap to the Instagram or YouTube app.
 export default function VideoCard({ article }: { article: ArticleSummary }) {
   const [open, setOpen] = useState(false);
-  const linkRef = useRef<HTMLAnchorElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   // Stable callback, so the modal does not re-run its effects (and re-focus) on every render.
   const close = useCallback(() => {
     setOpen(false);
     // Return focus to the card that opened the player.
-    linkRef.current?.focus();
+    buttonRef.current?.focus();
   }, []);
+
+  const isReel = article.platform === "instagram";
 
   return (
     <>
-      <a
-        ref={linkRef}
-        href={article.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={(e) => {
-          if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-          e.preventDefault();
-          setOpen(true);
-        }}
-        className="group flex flex-col overflow-hidden rounded-2xl bg-surface transition-shadow hover:shadow-md"
+      <button
+        ref={buttonRef}
+        type="button"
+        onClick={() => setOpen(true)}
+        aria-haspopup="dialog"
+        className="group flex w-full flex-col overflow-hidden rounded-2xl bg-surface text-left transition-shadow hover:shadow-md"
       >
         <div className="relative aspect-[16/10] bg-line">
           <Image
@@ -56,10 +54,17 @@ export default function VideoCard({ article }: { article: ArticleSummary }) {
             <time dateTime={article.date}>{formatDate(article.date)}</time> · {article.durationLabel}
           </p>
         </div>
-      </a>
+      </button>
 
       {open && article.videoId && (
-        <VideoModal videoId={article.videoId} title={article.title} onClose={close} />
+        <VideoModal
+          videoId={article.videoId}
+          title={article.title}
+          platform={article.platform ?? "youtube"}
+          openUrl={article.href}
+          openLabel={isReel ? "Open on Instagram" : "Open on YouTube"}
+          onClose={close}
+        />
       )}
     </>
   );

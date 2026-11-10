@@ -78,11 +78,14 @@ function loadVideos(): VideoPost[] {
     .filter((file) => file.endsWith(".md"))
     .map((file): VideoPost => {
       const { data } = matter(fs.readFileSync(path.join(VIDEO_DIR, file), "utf8"));
-      const seconds = Number(data.durationSeconds);
-      if (!Number.isFinite(seconds) || seconds <= 0) {
-        throw new Error(`content/videos/${file}: "durationSeconds" must be a positive number`);
+      const platform = data.platform === "instagram" ? "instagram" : "youtube";
+      // YouTube needs a length for the card and structured data. Instagram reels don't expose one.
+      const seconds = data.durationSeconds === undefined ? undefined : Number(data.durationSeconds);
+      if (platform === "youtube" && (seconds === undefined || !Number.isFinite(seconds) || seconds <= 0)) {
+        throw new Error(`content/videos/${file}: "durationSeconds" must be a positive number for YouTube`);
       }
       return {
+        platform,
         videoId: requireString(data, "videoId", file),
         title: requireString(data, "title", file),
         subtitle: requireString(data, "subtitle", file),

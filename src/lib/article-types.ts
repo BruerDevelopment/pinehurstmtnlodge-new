@@ -24,6 +24,7 @@ export type Article = {
 // Videos reuse this shape: kind "video" plus a YouTube videoId and durationLabel.
 export type ArticleSummary = {
   kind: "article" | "video";
+  platform?: "youtube" | "instagram";
   href: string;
   title: string;
   subtitle: string;
@@ -49,7 +50,9 @@ export type VideoPost = {
   category: string;
   author: string;
   date: string;
-  durationSeconds: number;
+  // YouTube videos set this. Instagram reels don't expose a length, so it is omitted.
+  durationSeconds?: number;
+  platform: "youtube" | "instagram";
   cover: string;
   coverAlt: string;
   featured: boolean;
@@ -73,17 +76,22 @@ export function durationLabel(seconds: number): string {
 }
 
 export function videoToSummary(video: VideoPost): ArticleSummary {
+  const isReel = video.platform === "instagram";
+  const seconds = video.durationSeconds ?? 0;
   return {
     kind: "video",
-    href: `https://www.youtube.com/watch?v=${video.videoId}`,
+    platform: video.platform,
+    href: isReel
+      ? `https://www.instagram.com/reel/${video.videoId}/`
+      : `https://www.youtube.com/watch?v=${video.videoId}`,
     title: video.title,
     subtitle: video.subtitle,
     description: video.description,
     category: video.category,
     author: video.author,
     date: video.date,
-    readingMinutes: Math.max(1, Math.round(video.durationSeconds / 60)),
-    durationLabel: durationLabel(video.durationSeconds),
+    readingMinutes: Math.max(1, Math.round(seconds / 60)),
+    durationLabel: isReel ? "Instagram Reel" : durationLabel(seconds),
     durationSeconds: video.durationSeconds,
     videoId: video.videoId,
     cover: video.cover,

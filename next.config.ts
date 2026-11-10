@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
     NEXT_PUBLIC_BASE_PATH: basePath,
     NEXT_PUBLIC_SITE_ORIGIN: siteOrigin,
   },
+  allowedDevOrigins: ['192.168.0.50'],
   // Static export has no image optimizer server, so next/image must run unoptimized.
   images: {
     unoptimized: true,
