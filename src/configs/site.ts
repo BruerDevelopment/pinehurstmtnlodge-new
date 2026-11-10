@@ -37,7 +37,7 @@ export const site = {
 
   facts: [
     { label: "Sleeps", value: "6 guests" },
-    { label: "Layout", value: "4 bed · 3 bath" },
+    { label: "Layout", value: "4 rooms · 3 bath" },
     { label: "Check-in", value: "4:00 PM" },
     { label: "Check-out", value: "12:00 PM" },
   ],
