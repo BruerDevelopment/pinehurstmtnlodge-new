@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import Lightbox from "@/components/ui/Lightbox";
 
-export type GalleryPhoto = { src: string; alt: string; caption?: string };
+export type GalleryPhoto = { src: string; alt: string; caption?: string; fit?: "cover" | "contain" };
 
 // Thumbnail grid. Clicking a photo opens the shared Lightbox.
 // With previewCount set, only that many thumbnails show, and a "View all" button opens the full set.
@@ -37,7 +37,7 @@ export default function PhotoGallery({
                   alt={photo.alt}
                   fill
                   sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                  className={`${fit === "contain" ? "object-contain" : "object-cover"} transition-transform group-hover:scale-[1.02]`}
+                  className={`${(photo.fit ?? fit) === "contain" ? "object-contain" : "object-cover"} transition-transform group-hover:scale-[1.02]`}
                 />
               </div>
               {photo.caption && <p className="mt-2 text-sm text-muted">{photo.caption}</p>}

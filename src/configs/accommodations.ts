@@ -2,7 +2,8 @@
 // Photo paths are wrapped with withBase() so they work under the GitHub Pages base path.
 import { withBase } from "@/configs/site";
 
-export type Photo = { src: string; alt: string; caption?: string };
+// "contain" shows the whole photo inside its frame instead of cropping it. Default is "cover".
+export type Photo = { src: string; alt: string; caption?: string; fit?: "cover" | "contain" };
 
 export type RoomCard = {
   title: string;
@@ -32,7 +33,11 @@ export const accessNote = {
   ],
 };
 
-const photo = (name: string, alt: string): Photo => ({ src: withBase(`/photos/rooms/${name}.webp`), alt });
+const photo = (name: string, alt: string, fit?: "cover" | "contain"): Photo => ({
+  src: withBase(`/photos/rooms/${name}.webp`),
+  alt,
+  ...(fit ? { fit } : {}),
+});
 const craft = (name: string, alt: string): Photo => ({ src: withBase(`/photos/craft/${name}.webp`), alt });
 const mtnViews = (name: string, alt: string): Photo => ({ src: withBase(`/photos/mtn-views/${name}.webp`), alt });
 
@@ -190,7 +195,7 @@ export const accommodationSections: AccommodationSection[] = [
         body: "A shelf of board games and puzzles for rainy afternoons and family nights.",
         features: ["Board games and puzzles", "Fairy play area"],
         photos: [
-          photo("games-toys/game-shelf", "Shelf with board games and puzzles"),
+          photo("games-toys/game-shelf", "Shelf with board games and puzzles", "contain"),
           photo("games-toys/fairies", "Fairies play area"),
           photo("pool-table/pool-table-w-people", "Pool table")
         ],
