@@ -45,9 +45,7 @@ If you're stopping on the way up from the airport:
 
 - [Michaels, Place Clermont Crossing](https://maps.app.goo.gl/PrdGbcW1BL5tfWW27)
 - [Hobby Lobby](https://maps.app.goo.gl/8rmrhvoKpwWxxrEB7)
-- [Joann Fabric and Crafts](https://maps.app.goo.gl/VqDfr7H7w3W4Mjkx5)
 - [Hobby Lobby](https://maps.app.goo.gl/DeU4ogFWVg5k3QoGA)
-- [Joann Fabric & Crafts](https://maps.app.goo.gl/DUup3V3fXKcKcMzc9)
 - [HR Meininger Company](https://maps.app.goo.gl/qWZmNdSQEQjGHzWu9)
 
 ## Capturing Memories While Building Memories

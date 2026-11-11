@@ -118,21 +118,21 @@ export const faqGroups: FaqGroup[] = [
         ],
       },
       {
-        question: "How do I operate the indoor wood-burning fireplace?",
+        question: "How do I operate the indoor wood-burning stove?",
         answer: [
-          "Our unique indoor fireplace is engineered to gently heat the home rather than provide a roaring fire. Please follow these instructions:",
+          "Our unique indoor wood-burning stove is engineered to gently heat the home rather than provide a roaring fire. Please follow these instructions:",
           [
             "Use only very dry wood.",
             "Burn only 1 or 2 logs at a time.",
-            "Completely open the chimney door by pulling the handle on the back of the fireplace before starting your fire.",
-            "Keep the chimney door closed when the fireplace is not in use to prevent outdoor drafts.",
+            "Completely open the chimney door by pulling the handle on the back of the stove before starting your fire.",
+            "Keep the chimney door closed when the stove is not in use to prevent outdoor drafts.",
           ],
         ],
       },
       {
         question: "Is firewood provided?",
         answer: [
-          "Yes! Firewood is provided for the indoor wood-burning fireplace.",
+          "Yes! Firewood is provided for the indoor wood-burning stove.",
           "There is also a separate propane fireplace available for your enjoyment outside on the deck.",
         ],
       },

@@ -178,5 +178,5 @@ export const sitePages = [
   { title: "Guest Reviews", path: "/reviews", note: "All guest reviews." },
   { title: "Accommodations", path: "/accommodations", note: "Bedrooms, kitchens, living spaces, bathrooms, laundry, and garage." },
   { title: "Kitchen Guide", path: "/kitchen_guide", note: "Photo guide to the upstairs and downstairs kitchens." },
-  { title: "FAQs", path: "/faqs", note: "Check-in, house rules, hot tub and fireplace instructions, parking, and nearby attractions." },
+  { title: "FAQs", path: "/faqs", note: "Check-in, house rules, hot tub and wood-burning stove instructions, parking, and nearby attractions." },
 ];

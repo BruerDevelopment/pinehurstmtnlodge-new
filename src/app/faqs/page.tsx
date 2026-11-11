@@ -8,7 +8,7 @@ import { site } from "@/configs/site";
 export const metadata = pageMetadata({
   title: "FAQs & House Rules",
   description:
-    "Check-in and arrival details, house rules, hot tub and fireplace instructions, parking, and nearby attractions and dining at Pinehurst Mtn Lodge.",
+    "Check-in and arrival details, house rules, hot tub and wood-burning stove instructions, parking, and nearby attractions and dining at Pinehurst Mtn Lodge.",
   path: "/faqs",
 });
 

@@ -92,7 +92,7 @@ export const site = {
     "Arctic Spas 6-Person Hot Tub",
     "Two Fully Equipped Kitchens",
     "Pool Table",
-    "Wood-Burning Fireplace",
+    "Wood-Burning Stove",
     "Two Living Rooms",
     "Two Full Laundries with Washers and Dryers",
     "Indoor Garage Parking for 2 Vehicles",

@@ -132,7 +132,7 @@ export const accommodationSections: AccommodationSection[] = [
         title: "Downstairs Kitchen",
         body: "A secondary kitchen with a second set of everything needed for a Thanksgiving meal.",
         features: [
-          "A large fridge with ample freazer space",
+          "A large fridge with ample freezer space",
           "Coffee maker and toaster oven",
           "Pots, pans, cutlery, and utensils",
           "Flatware for 8, plus wheat straw plates, bowls, and cups for 8",
@@ -154,10 +154,10 @@ export const accommodationSections: AccommodationSection[] = [
     cards: [
       {
         title: "Upstairs Living Room",
-        body: "Seating for 8, a wood-burning fireplace, a Google smart TV, and a weather station, with a breathtaking view of the Continental Divide. The open layout connects it to the kitchen and dining area.",
-        features: ["Seating for 8", "Wood-burning fireplace", "Google smart TV", "Weather station"],
+        body: "Seating for 8, a wood-burning stove, a Google smart TV, and a weather station, with a breathtaking view of the Continental Divide. The open layout connects it to the kitchen and dining area.",
+        features: ["Seating for 8", "Wood-burning stove", "Google smart TV", "Weather station"],
         photos: [
-          photo("upstairs-main-space/living-1", "Upstairs living room with leather seating, a glass coffee table, and a fireplace"),
+          photo("upstairs-main-space/living-1", "Upstairs living room with leather seating, a glass coffee table, and a wood-burning stove"),
           photo("upstairs-main-space/living-2", "Upstairs living room with leather armchairs and a wall-mounted TV"),
           photo("upstairs-main-space/living-3", "Open living room and kitchen with a kitchen island and bar seating"),
           photo("upstairs-main-space/living-4", "Living room and dining area seen from the upstairs kitchen"),
