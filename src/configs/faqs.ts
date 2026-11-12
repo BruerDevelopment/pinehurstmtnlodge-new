@@ -61,10 +61,6 @@ export const faqGroups: FaqGroup[] = [
         ],
       },
       {
-        question: "What are the check-in and check-out times?",
-        answer: [["Check-in: 4:00 PM", "Check-out: 12:00 PM (noon)"]],
-      },
-      {
         question: "What is the maximum total guest occupancy allowed?",
         answer: [
           "Pinehurst Lodge comfortably sleeps a maximum of 6 guests.",

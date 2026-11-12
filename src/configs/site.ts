@@ -157,8 +157,8 @@ export const site = {
   // About page: two family photos, the intro, each owner's profile, and a closing note.
   about: {
     familyPhotos: [
-      { src: withBase("/photos/host-photos/family-aspens.jpg"), alt: "Pinehurst Lodge owners, photo 1" },
-      { src: withBase("/photos/host-photos/family-no-shea-skiing-brett.jpg"), alt: "Pinehurst Lodge owners, photo 2" },
+      { src: withBase("/photos/host-photos/family-between-bolders.webp"), alt: "Pinehurst Lodge owners, photo 1" },
+      { src: withBase("/photos/host-photos/family-no-shea-skiing-brett.webp"), alt: "Pinehurst Lodge owners, photo 2" },
     ],
     intro: [
       "Welcome to our home! We are the Pinehurst Lodge owners (Kraig, Lisa, Parker, Rheo, Keegan, and Shea), a group of passionate travelers, outdoor enthusiasts, and your dedicated short-term rental hosts. While our family is spread across North Carolina and Colorado, we come together to ensure you have an unforgettable stay. Here is a little bit about who we are:",
@@ -175,7 +175,7 @@ export const site = {
       },
       {
         name: "Shea",
-        bio: "Based in Asheville, NC, Shea works as a GIS Analyst in urban planning. He balances his career with raising a rambunctious pup named Kerrigan and traveling for both work and family trips.",
+        bio: "Shea works as a GIS Analyst in urban planning. He balances his career with raising a rambunctious pup named Kerrigan and traveling for both work and family trips.",
       },
       {
         name: "Kraig & Lisa",
