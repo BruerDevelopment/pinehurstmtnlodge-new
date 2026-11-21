@@ -17,6 +17,17 @@ function bedSummary() {
   }));
 }
 
+// Turns a review date like "October 2026" into ISO 8601 "2026-10" for datePublished.
+// Returns undefined for anything it cannot parse, so the field is left out instead of being wrong.
+function isoMonth(date: string | undefined) {
+  if (!date) return undefined;
+  const match = date.trim().match(/^([A-Za-z]+)\s+(\d{4})$/);
+  if (!match) return undefined;
+  const month = new Date(`${match[1]} 1, ${match[2]}`).getMonth();
+  if (Number.isNaN(month)) return undefined;
+  return `${match[2]}-${String(month + 1).padStart(2, "0")}`;
+}
+
 // schema.org JSON-LD describing the lodge. Only includes facts that are real.
 // Telephone, street address, and policies are omitted (see the plan).
 export function lodgingJsonLd() {
@@ -26,6 +37,7 @@ export function lodgingJsonLd() {
     "@context": "https://schema.org",
     "@type": "VacationRental",
     "@id": absoluteUrl("/#lodge"),
+    identifier: "pinehurst-mtn-lodge",
     name: site.name,
     url: site.siteUrl,
     description: site.description,
@@ -59,7 +71,7 @@ export function lodgingJsonLd() {
     containsPlace: {
       "@type": "Accommodation",
       additionalType: "EntirePlace",
-      occupancy: { "@type": "QuantitativeValue", maxValue: property.maxOccupancy },
+      occupancy: { "@type": "QuantitativeValue", value: property.maxOccupancy },
       numberOfBedrooms: property.bedrooms,
       numberOfBathroomsTotal: property.bathrooms,
       bed: bedSummary(),
@@ -83,6 +95,7 @@ export function lodgingJsonLd() {
     review: site.reviews.items.map((review) => ({
       "@type": "Review",
       author: { "@type": "Person", name: review.name },
+      datePublished: isoMonth(review.date),
       reviewBody: review.text,
       reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5, worstRating: 1 },
     })),
