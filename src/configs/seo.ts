@@ -43,7 +43,7 @@ export function lodgingJsonLd() {
     "@type": "VacationRental",
     "@id": absoluteUrl("/#lodge"),
     identifier: "pinehurst-mtn-lodge",
-    additionalType: "EntirePlace",
+    additionalType: "Cabin",
     name: site.name,
     url: site.siteUrl,
     description: site.description,
