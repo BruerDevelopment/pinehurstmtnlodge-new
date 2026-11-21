@@ -32,12 +32,18 @@ function isoMonth(date: string | undefined) {
 // Telephone, street address, and policies are omitted (see the plan).
 export function lodgingJsonLd() {
   const { property } = site;
+  const amenityFeatures = site.amenities.map((name) => ({
+    "@type": "LocationFeatureSpecification",
+    name,
+    value: true,
+  }));
 
   return {
     "@context": "https://schema.org",
     "@type": "VacationRental",
     "@id": absoluteUrl("/#lodge"),
     identifier: "pinehurst-mtn-lodge",
+    additionalType: "EntirePlace",
     name: site.name,
     url: site.siteUrl,
     description: site.description,
@@ -63,11 +69,7 @@ export function lodgingJsonLd() {
     petsAllowed: property.petsAllowed,
     checkinTime: "16:00:00",
     checkoutTime: "12:00:00",
-    amenityFeature: site.amenities.map((name) => ({
-      "@type": "LocationFeatureSpecification",
-      name,
-      value: true,
-    })),
+    amenityFeature: amenityFeatures,
     containsPlace: {
       "@type": "Accommodation",
       additionalType: "EntirePlace",
@@ -75,6 +77,7 @@ export function lodgingJsonLd() {
       numberOfBedrooms: property.bedrooms,
       numberOfBathroomsTotal: property.bathrooms,
       bed: bedSummary(),
+      amenityFeature: amenityFeatures,
       containsPlace: property.rooms.map((room) => ({
         "@type": "Accommodation",
         name: room.name,
