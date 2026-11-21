@@ -7,7 +7,7 @@ author: "Pinehurst Mtn Lodge Team"
 date: "2024-07-03"
 updated: "2024-07-03"
 path: "5_best_rollinsville"
-cover: "/photos/articles/toss-exterior.png"
+cover: "/photos/articles/toss-exterior.webp"
 coverAlt: "Exterior of Toss: Wood Fired Eatery in Rollinsville"
 featured: true
 ---
