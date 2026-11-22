@@ -33,6 +33,30 @@ export const accessNote = {
   ],
 };
 
+// "Things We Provide" lists, from the owner's "Things we provide" document.
+export const providedItems = [
+  "Linens & towels",
+  "Dish soap & unscented laundry detergent",
+  "Shampoo, conditioner & body wash",
+  "Q-tips, cotton balls, flossing picks",
+  "Toilet paper & paper towel",
+  "Tissues & lotion",
+  "Espresso machine & drip coffee maker",
+  "Blender & citrus juicer",
+  "Hand mixer & crockpot",
+  "Meat thermometer & corkscrew",
+  "Rolling pin & can opener",
+  "Roasting pan",
+  "Large capacity Brita water filter",
+  "Air purifier",
+  "Humidifier",
+  "Fans for each bedroom",
+  "Space heaters (2)",
+  "Hair dryer",
+];
+
+export const mightFindItems = ["Condiments", "Coffee & tea", "Sugar", "A large collection of spices", "Cooking spray & oil"];
+
 const photo = (name: string, alt: string, fit?: "cover" | "contain"): Photo => ({
   src: withBase(`/photos/rooms/${name}.webp`),
   alt,

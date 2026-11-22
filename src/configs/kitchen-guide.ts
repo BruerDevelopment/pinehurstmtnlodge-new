@@ -1,5 +1,6 @@
-// Kitchen Guide photo galleries, migrated from the live /kitchen_guide page.
-// Captions come from the live page where it had them. Others are descriptive and should be reviewed by the owner.
+// Kitchen Guide photo galleries. Photos come from the owner's "Kitchen Guides" folder, converted to webp by
+// scripts/convert-kitchen-guide.mjs. Captions and alt text are written from the source filenames, so the owner
+// should review them. The order below matches the numbering in the converted files (upstairs-01..30, downstairs-01..11).
 // Photo paths are wrapped with withBase() so they work under the GitHub Pages base path.
 import { withBase } from "@/configs/site";
 import type { GalleryPhoto } from "@/components/ui/PhotoGallery";
@@ -8,48 +9,53 @@ export const kitchenIntro =
   "Both kitchens are fully stocked for everything from a quick breakfast to a big family dinner. We cook real meals here, and we want you to feel at home doing the same.";
 
 const upstairsItems: { caption: string; alt: string }[] = [
-  { caption: "Dish cupboard", alt: "Dish cupboard with plates and bowls" },
-  { caption: "Silverware drawer", alt: "Silverware drawer with forks, knives, and spoons" },
-  { caption: "Dining set", alt: "Dining place setting with plates, bowls, and flatware" },
-  { caption: "Glass drinkware", alt: "Shelves of drinking glasses and stemware" },
+  { caption: "Brita water filter", alt: "Large capacity Brita water filter" },
+  { caption: "Colander, grater & measuring cup", alt: "Colander, grater, and measuring cup" },
+  { caption: "Cookware lids", alt: "Lids for pots and pans" },
+  { caption: "Cookware", alt: "Pots and pans" },
+  { caption: "Utensil drawer A", alt: "Utensil drawer with cooking tools" },
+  { caption: "Utensil drawer B", alt: "Second utensil drawer with cooking tools" },
+  { caption: "Bakeware", alt: "Baking pans and sheets" },
   { caption: "Blender", alt: "Blender on a cabinet shelf" },
-  { caption: "Slow cooker", alt: "Stainless slow cooker on a shelf" },
-  { caption: "Baking pans & sheets", alt: "Baking pans and sheets stacked together" },
-  { caption: "Baking & misc utensils", alt: "Whisk, scissors, peeler, and other utensils in a drawer" },
-  { caption: "Cooking utensils", alt: "Cooking utensils in a drawer" },
-  { caption: "Cooking pots & pans", alt: "Nonstick pots and pans" },
-  { caption: "Lids for pots & pans", alt: "Glass lids for pots and pans" },
-  { caption: "Colander, grater & measuring cup", alt: "Colander, grater, and glass bowl" },
-  { caption: "Toaster oven", alt: "Countertop toaster oven" },
-  { caption: "Microwave", alt: "Microwave oven" },
-  { caption: "Spice cupboard with communal spices", alt: "Shelf of spice jars" },
-  { caption: "Glass pie dishes", alt: "Glass pie dish" },
-  { caption: "Adventure cooler", alt: "Blue cooler on the deck" },
-  { caption: "Glass carafes", alt: "Two glass carafes with lemonade" },
-  { caption: "Pepper and salt grinders", alt: "Salt and pepper grinders" },
-  { caption: "White serving bowls", alt: "Stack of white serving bowls" },
-  { caption: "Stovetop kettle", alt: "Stainless steel stovetop kettle" },
-  { caption: "Silicone lids and strainers", alt: "Colorful silicone lids and metal strainers" },
-  { caption: "Dining table", alt: "Dining table set for four" },
+  { caption: "Bowls", alt: "Bowls on a shelf" },
+  { caption: "Cooler", alt: "Cooler" },
+  { caption: "Crockpot", alt: "Crockpot slow cooker" },
+  { caption: "Dishes", alt: "Dishes in a cupboard" },
+  { caption: "Glassware", alt: "Shelves of drinking glasses and stemware" },
   { caption: "Hand mixer", alt: "Hand mixer with beaters" },
+  { caption: "Hot tub plastic glasses", alt: "Plastic glasses for the hot tub" },
+  { caption: "Juicer", alt: "Citrus juicer" },
+  { caption: "Knives", alt: "Knives in a drawer" },
+  { caption: "Microwave", alt: "Microwave oven" },
+  { caption: "Mixing bowls with lids", alt: "Mixing bowls with lids" },
+  { caption: "Oven mitts", alt: "Oven mitts" },
+  { caption: "Pie plates", alt: "Glass pie plates, several of them" },
+  { caption: "Place setting", alt: "Dining place setting with plates, bowls, and flatware" },
+  { caption: "Salt & pepper", alt: "Salt and pepper grinders" },
+  { caption: "Silverware", alt: "Silverware in a drawer" },
+  { caption: "Spice cupboard", alt: "Spice cupboard with communal spices" },
+  { caption: "Spice cupboard, second view", alt: "Second view of the spice cupboard" },
+  { caption: "Tea kettle", alt: "Stainless steel stovetop tea kettle" },
+  { caption: "Thermometers", alt: "Meat and kitchen thermometers" },
+  { caption: "Toaster oven", alt: "Countertop toaster oven" },
+  { caption: "Water carafes", alt: "Glass water carafes" },
 ];
 
 const downstairsItems: { caption: string; alt: string }[] = [
-  { caption: "Dinnerware", alt: "Stacked dinner plates in a cupboard" },
-  { caption: "Bowls and cups", alt: "Bowls and cups on shelves" },
-  { caption: "Flatware", alt: "Flatware in a drawer organizer" },
-  { caption: "Knives and measuring spoons", alt: "Knives and measuring spoons in a drawer" },
-  { caption: "Range", alt: "Electric range with a dish towel" },
-  { caption: "Microwave", alt: "Microwave oven" },
-  { caption: "Coffee maker and toaster oven", alt: "Coffee maker and toaster oven on the counter" },
-  { caption: "Electric kettle", alt: "Glass electric kettle" },
+  { caption: "Cleaning supplies", alt: "Paper towels and cleaning supplies" },
+  { caption: "Coffee maker & toaster oven", alt: "Coffee maker and toaster oven on the counter" },
+  { caption: "Refrigerator", alt: "Separate downstairs refrigerator" },
   { caption: "Kitchen sink", alt: "Kitchen sink with a dish rack" },
-  { caption: "Separate downstairs fridge", alt: "Separate downstairs refrigerator" },
-  { caption: "Oven mitts and parchment", alt: "Oven mitts and parchment paper in a drawer" },
-  { caption: "Paper towels and cleaning supplies", alt: "Paper towels and disinfecting wipes" },
+  { caption: "Utensils", alt: "Kitchen utensils in a drawer" },
+  { caption: "Flatware", alt: "Flatware in a drawer organizer" },
+  { caption: "Hot pot", alt: "Hot pot" },
+  { caption: "Microwave", alt: "Microwave oven" },
+  { caption: "Stove", alt: "Electric range with a dish towel" },
+  { caption: "Wheat straw bowls & cups", alt: "Wheat straw bowls and cups on a shelf" },
+  { caption: "Wheat straw plates", alt: "Wheat straw plates in a cupboard" },
 ];
 
-// File names are folder-01, folder-02, ... in the same order as the items above.
+// File names are upstairs-01, upstairs-02, ... and downstairs-01, ... in the same order as the items above.
 const toPhotos = (folder: string, items: { caption: string; alt: string }[]): GalleryPhoto[] =>
   items.map((item, i) => ({
     src: withBase(`/photos/rooms/kitchen/guide-photos/${folder}-${String(i + 1).padStart(2, "0")}.webp`),

@@ -1,5 +1,7 @@
 // FAQ and house rules content. Each answer is a list of blocks:
 // a string is a paragraph, and an array of strings is a bulleted list.
+import { mightFindItems, providedItems } from "@/configs/accommodations";
+
 export type Block = string | string[];
 
 export type FaqItem = { question: string; answer: Block[] };
@@ -144,6 +146,14 @@ export const faqGroups: FaqGroup[] = [
             "Place the protective covers back onto the deck grill and outdoor couch.",
           ],
         ],
+      },
+      {
+        question: "What toiletries and amenities are stocked for guests?",
+        answer: ["We stock the following toiletries and amenities for your stay:", providedItems],
+      },
+      {
+        question: "What might I find at the lodge that you don't stock?",
+        answer: ["These items are often left behind by our guests:", mightFindItems],
       },
       {
         question: "How do I manage the heating units during my stay and at check-out?",

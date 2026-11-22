@@ -5,7 +5,7 @@ import SectionNav from "@/components/accommodations/SectionNav";
 import BookingSection from "@/components/sections/BookingSection";
 import JsonLd from "@/components/seo/JsonLd";
 import Section from "@/components/ui/Section";
-import { accessNote, accommodationSections } from "@/configs/accommodations";
+import { accessNote, accommodationSections, mightFindItems, providedItems } from "@/configs/accommodations";
 import { breadcrumbJsonLd } from "@/configs/seo";
 import { site } from "@/configs/site";
 
@@ -44,7 +44,7 @@ export default function AccommodationsPage() {
         </dl>
 
         <div className="mt-8">
-          <SectionNav sections={[...accommodationSections.map(({ id, title }) => ({ id, title })), {id:"access", title:accessNote.title}]} />
+          <SectionNav sections={[...accommodationSections.map(({ id, title }) => ({ id, title })), {id:"provided", title:"Things We Provide"}, {id:"access", title:accessNote.title}]} />
         </div>
       </section>
 
@@ -71,6 +71,34 @@ export default function AccommodationsPage() {
           
         </Section>
       ))}
+
+      <Section id="provided" title="Things We Provide">
+        <div className="grid items-start gap-4 md:grid-cols-2">
+          <details className="group rounded-2xl bg-surface p-5">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-ink">
+              <span>What toiletries and amenities are stocked?</span>
+              <span aria-hidden="true" className="text-accent transition-transform group-open:rotate-45">+</span>
+            </summary>
+            <ul className="mt-4 list-disc space-y-1 pl-5 text-muted">
+              {providedItems.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </details>
+          <details className="group rounded-2xl bg-surface p-5">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-ink">
+              <span>What might I find at the lodge that you don&apos;t stock?</span>
+              <span aria-hidden="true" className="text-accent transition-transform group-open:rotate-45">+</span>
+            </summary>
+            <p>We don&apos;t stock these items but they are often left behind by our guests.</p>
+            <ul className="mt-4 list-disc space-y-1 pl-5 text-muted">
+              {mightFindItems.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </details>
+        </div>
+      </Section>
 
       <Section id="access" title={accessNote.title}>
         <p className="max-w-3xl text-lg leading-8 text-muted">{accessNote.intro}</p>
