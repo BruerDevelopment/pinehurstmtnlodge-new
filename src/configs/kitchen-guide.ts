@@ -34,7 +34,6 @@ const upstairsItems: { caption: string; alt: string }[] = [
   { caption: "Salt & pepper", alt: "Salt and pepper grinders" },
   { caption: "Silverware", alt: "Silverware in a drawer" },
   { caption: "Spice cupboard", alt: "Spice cupboard with communal spices" },
-  { caption: "Spice cupboard, second view", alt: "Second view of the spice cupboard" },
   { caption: "Tea kettle", alt: "Stainless steel stovetop tea kettle" },
   { caption: "Thermometers", alt: "Meat and kitchen thermometers" },
   { caption: "Toaster oven", alt: "Countertop toaster oven" },
