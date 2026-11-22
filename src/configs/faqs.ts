@@ -156,6 +156,13 @@ export const faqGroups: FaqGroup[] = [
         answer: ["These items are often left behind by our guests:", mightFindItems],
       },
       {
+        question: "What is in each kitchen?",
+        answer: [
+          "Our Kitchen Guide has photos and captions of the cookware, dishes, and appliances in both the upstairs and downstairs kitchens.",
+          "You can find it here: [Kitchen Guide](/kitchen_guide).",
+        ],
+      },
+      {
         question: "How do I manage the heating units during my stay and at check-out?",
         answer: [
           "The lodge features several heating systems:",
