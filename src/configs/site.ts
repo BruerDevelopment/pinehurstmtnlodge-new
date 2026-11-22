@@ -51,7 +51,7 @@ export const site = {
     { src: withBase("/photos/rooms/upstairs-deck/deck-w-people.webp"), alt: "Deck, Outdoor Grill, And a View" },
     { src: withBase("/photos/rooms/upstairs-primary/upstairs-primary-2.webp"), alt: "Upstairs primary bedroom" },
     { src: withBase("/photos/rooms/pool-table/pool-table-w-people.webp"), alt: "Downstairs pool table" },
-    { src: withBase("/photos/mtn-views/view-w-ipa.webp"), alt: "Mountain view with two IPAs" },
+    { src: withBase("/photos/mtn-views/view-w-charcuterie.webp"), alt: "Mountain view with charcuterie" },
   ],
 
   space: [
