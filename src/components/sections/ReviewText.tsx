@@ -20,7 +20,9 @@ export default function ReviewText({ text }: { text: string }) {
   }, [text, expanded]);
 
   return (
-    <div className="mt-4">
+    // min-h-[7rem] reserves room for three lines of text (3 x 1.75rem) plus the Show more button (0.5rem + 1.25rem),
+    // so short reviews take the same height as long ones.
+    <div className="mt-4 min-h-[7rem]">
       {/* whitespace-pre-line keeps the \n line breaks in the review text as paragraph breaks. */}
       <p ref={ref} className={`whitespace-pre-line leading-7 text-ink ${expanded ? "" : "line-clamp-3"}`}>
         {text}
