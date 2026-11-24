@@ -1,5 +1,6 @@
 import AreaMap from "@/components/sections/AreaMap";
 import { pageMetadata } from "@/configs/metadata";
+import { getAllPosts } from "@/lib/articles";
 
 // Legacy map URL. The map also appears on /things-to-do.
 export const metadata = pageMetadata({
@@ -12,7 +13,7 @@ export const metadata = pageMetadata({
 export default function AreaGuideMapPage() {
   return (
     <main className="flex-1 pt-8">
-      <AreaMap />
+      <AreaMap allArticles={getAllPosts()} />
     </main>
   );
 }

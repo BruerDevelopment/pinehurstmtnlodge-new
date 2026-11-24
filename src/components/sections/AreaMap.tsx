@@ -8,6 +8,7 @@ import { mapCenter, mapPoints, mapZoom } from "@/configs/map";
 import Link from "next/link";
 import { withBase } from "@/configs/site";
 import ArticleCard from "@/components/articles/ArticleCard";
+import MapDetailPanel from "@/components/sections/MapDetailPanel";
 import type { ArticleSummary } from "@/lib/article-types";
 
 // Leaflet reads `window` when its module loads, so it is imported only in the browser (inside the effect).
@@ -80,9 +81,18 @@ const badgePosition: Record<Corner, string> = {
 };
 
 // Optional article cards shown below the map (used on the home page).
-export default function AreaMap({ articles = [] }: { articles?: ArticleSummary[] }) {
+// allArticles is every article and video, so the detail panel can link to the guides for each pin.
+export default function AreaMap({
+  articles = [],
+  allArticles = [],
+}: {
+  articles?: ArticleSummary[];
+  allArticles?: ArticleSummary[];
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const [hints, setHints] = useState<Hints>({ topLeft: null, topRight: null, bottomLeft: null, bottomRight: null });
+  const [selectedName, setSelectedName] = useState<string | null>(null);
+  const selected = mapPoints.find((p) => p.name === selectedName);
 
   useEffect(() => {
     let map: LeafletMap | undefined;
@@ -108,7 +118,10 @@ export default function AreaMap({ articles = [] }: { articles?: ArticleSummary[]
 
       for (const point of mapPoints) {
         L.marker(point.position, { icon: icons[point.icon], title: point.name })
-          .bindPopup(point.name)
+          .on("click", () => {
+            setSelectedName(point.name);
+            m.panTo(point.position);
+          })
           .addTo(m);
       }
 
@@ -125,20 +138,23 @@ export default function AreaMap({ articles = [] }: { articles?: ArticleSummary[]
 
   return (
     <Section id="map" eyebrow="Explore" title="Around the Lodge">
-      {/* isolate keeps Leaflet's high z-index layers inside the map, so they stay under the sticky header. */}
-      <div className="relative isolate overflow-hidden rounded-2xl border border-line bg-surface">
-        <div ref={ref} className="h-[28rem] w-full md:h-[36rem]" role="region" aria-label="Map of the area around Pinehurst Mountain Lodge" />
-        {(Object.keys(hints) as Corner[]).map((corner) => {
-          const hint = hints[corner];
-          return hint ? (
-            <p
-              key={corner}
-              className={`pointer-events-none absolute z-[1000] rounded-full bg-surface px-3 py-1 text-sm font-medium text-ink shadow-md ${badgePosition[corner]}`}
-            >
-              {hintText(hint)}
-            </p>
-          ) : null;
-        })}
+      <div className="grid gap-4 lg:grid-cols-[1fr_22rem]">
+        {/* isolate keeps Leaflet's high z-index layers inside the map, so they stay under the sticky header. */}
+        <div className="relative isolate overflow-hidden rounded-2xl border border-line bg-surface">
+          <div ref={ref} className="h-[28rem] w-full md:h-[36rem]" role="region" aria-label="Map of the area around Pinehurst Mountain Lodge" />
+          {(Object.keys(hints) as Corner[]).map((corner) => {
+            const hint = hints[corner];
+            return hint ? (
+              <p
+                key={corner}
+                className={`pointer-events-none absolute z-[1000] rounded-full bg-surface px-3 py-1 text-sm font-medium text-ink shadow-md ${badgePosition[corner]}`}
+              >
+                {hintText(hint)}
+              </p>
+            ) : null;
+          })}
+        </div>
+        <MapDetailPanel point={selected} allArticles={allArticles} />
       </div>
 
       {articles.length > 0 && (

@@ -43,7 +43,7 @@ export default function Home() {
       <LinkCards />
       <BookingSection />
       <Contact />
-      <AreaMap articles={guides} />
+      <AreaMap articles={guides} allArticles={getAllPosts()} />
     </main>
   );
 }

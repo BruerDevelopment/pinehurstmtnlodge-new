@@ -52,7 +52,7 @@ export default function ThingsToDoIndex() {
         </div>
       </section>
 
-      <AreaMap />
+      <AreaMap allArticles={articles} />
     </main>
   );
 }
