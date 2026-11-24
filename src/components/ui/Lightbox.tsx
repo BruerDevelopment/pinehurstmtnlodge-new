@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { getSwipeDirection } from "@/lib/swipe";
+import { useBackToClose } from "@/lib/use-back-to-close";
 
 export type LightboxPhoto = { src: string; alt: string };
 
@@ -25,6 +26,8 @@ export default function Lightbox({
   onNavigate: (index: number) => void;
 }) {
   const count = photos.length;
+  // The back gesture closes the viewer through onClose; in-page close actions go through requestClose.
+  const requestClose = useBackToClose(onClose);
   const trackRef = useRef<HTMLDivElement>(null);
   const drag = useRef<Drag | null>(null);
   const [dragX, setDragX] = useState(0);
@@ -35,7 +38,7 @@ export default function Lightbox({
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") requestClose();
       if (e.key === "ArrowRight") onNavigate((index + 1) % count);
       if (e.key === "ArrowLeft") onNavigate((index - 1 + count) % count);
     };
@@ -46,7 +49,7 @@ export default function Lightbox({
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
     };
-  }, [index, count, onClose, onNavigate]);
+  }, [index, count, requestClose, onNavigate]);
 
   function onPointerDown(e: React.PointerEvent<HTMLDivElement>) {
     if (count < 2 || e.pointerType === "mouse" || !e.isPrimary) return;
@@ -112,7 +115,7 @@ export default function Lightbox({
         <span className="text-sm">
           {index + 1} / {count}
         </span>
-        <button type="button" onClick={onClose} aria-label="Close photo viewer" className="text-2xl leading-none">
+        <button type="button" onClick={requestClose} aria-label="Close photo viewer" className="text-2xl leading-none">
           ✕
         </button>
       </div>

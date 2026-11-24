@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useBackToClose } from "@/lib/use-back-to-close";
 
 // Full-screen player over the page: YouTube (landscape) or an Instagram reel (portrait).
 // The iframe is only rendered while open, so closing it removes the player and stops playback.
@@ -22,10 +23,12 @@ export default function VideoModal({
 }) {
   const closeRef = useRef<HTMLButtonElement>(null);
   const backdropPress = useRef(false);
+  // The back gesture closes the player through onClose; in-page close actions go through requestClose.
+  const requestClose = useBackToClose(onClose);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") requestClose();
     };
     window.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
@@ -34,7 +37,7 @@ export default function VideoModal({
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
     };
-  }, [onClose]);
+  }, [requestClose]);
 
   return (
     <div
@@ -50,7 +53,7 @@ export default function VideoModal({
       onClick={(e) => {
         const closeNow = backdropPress.current && e.target === e.currentTarget;
         backdropPress.current = false;
-        if (closeNow) onClose();
+        if (closeNow) requestClose();
       }}
     >
       <div className="flex items-center justify-between gap-4 p-4">
@@ -65,7 +68,7 @@ export default function VideoModal({
         <button
           ref={closeRef}
           type="button"
-          onClick={onClose}
+          onClick={requestClose}
           aria-label="Close video"
           className="text-2xl leading-none text-white"
         >
