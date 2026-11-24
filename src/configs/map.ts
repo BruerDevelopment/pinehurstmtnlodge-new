@@ -15,7 +15,7 @@ export type MapDetails = {
 export type MapPoint = {
   name: string;
   position: [number, number];
-  icon: "lodge" | "resort" | "hiking";
+  icon: "lodge" | "resort" | "hiking" | "food" | "shopping";
   details?: MapDetails;
 };
 
@@ -153,6 +153,80 @@ export const mapPoints: MapPoint[] = [
       driveTime: "about 20 min",
       website: "https://www.fs.usda.gov/arp",
       articles: ["5_best_hikes_rollinsville"],
+    },
+  },
+  {
+    name: "Caribou Ranch Open Space",
+    position: [39.98256, -105.5193],
+    icon: "hiking",
+    details: {
+      summary: "Trails through an open space near the historic Caribou Ranch, a former recording studio. Access is seasonal, so check before you go.",
+      driveTime: "about 20 min",
+      articles: ["5_best_hikes_rollinsville"],
+    },
+  },
+  {
+    name: "Nederland",
+    position: [39.9614, -105.5108],
+    icon: "shopping",
+    details: {
+      summary: "A mountain town with shops, cafes, and restaurants, the closest town of any size to the lodge.",
+      driveTime: "about 15 min",
+    },
+  },
+  {
+    name: "Central City",
+    position: [39.80193, -105.51416],
+    icon: "shopping",
+    details: {
+      summary: "A historic mining town with gaming halls and preserved 19th-century buildings.",
+      driveTime: "about 45 min",
+    },
+  },
+  {
+    name: "Black Hawk",
+    position: [39.79793, -105.4933],
+    icon: "shopping",
+    details: {
+      summary: "A historic mining town next to Central City, with gaming halls and old buildings.",
+      driveTime: "about 45 min",
+    },
+  },
+  {
+    name: "Pearl Street Mall",
+    // Estimated from memory, not a verified source. Confirm on a map before publishing.
+    position: [40.0178, -105.2797],
+    icon: "shopping",
+    details: {
+      summary: "A pedestrian mall in downtown Boulder, lined with shops, restaurants, and street performers.",
+      driveTime: "about 45 min",
+    },
+  },
+  {
+    name: "East Portal at the Moffat Tunnel",
+    position: [39.90316, -105.64430],
+    icon: "hiking",
+    details: {
+      summary: "The trailhead for Lower Crater Lake and other hikes, at the east end of the Moffat Tunnel.",
+      driveTime: "about 25 min",
+    },
+  },
+  {
+    name: "Toss Woodfire Eatery",
+    position: [39.91694, -105.50122],
+    icon: "food",
+    details: {
+      summary: "Wood-fired pizza in Rollinsville, one of the restaurants guests mention most.",
+      articles: ["guides/rollinsville"],
+    },
+  },
+  {
+    name: "Gold Dirt Distillery",
+    position: [39.91711, -105.50151],
+    icon: "food",
+    details: {
+      summary: "A distillery in Rollinsville with cocktails, a short walk from the lodge.",
+      articles: ["guides/rollinsville"],
     },
   },
 ];

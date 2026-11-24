@@ -4,7 +4,15 @@ import { withBase } from "@/configs/site";
 import { articleHref, type ArticleSummary } from "@/lib/article-types";
 
 // Shows details for the map pin that was clicked. Sits beside the map on desktop and below it on phones.
-export default function MapDetailPanel({ point, allArticles }: { point?: MapPoint; allArticles: ArticleSummary[] }) {
+export default function MapDetailPanel({
+  point,
+  allArticles,
+  onBack,
+}: {
+  point?: MapPoint;
+  allArticles: ArticleSummary[];
+  onBack?: () => void;
+}) {
   if (!point) {
     return (
       <aside aria-live="polite" className="flex items-center rounded-2xl bg-surface p-6 text-muted">
@@ -20,7 +28,18 @@ export default function MapDetailPanel({ point, allArticles }: { point?: MapPoin
     .filter((a): a is ArticleSummary => Boolean(a));
 
   return (
-    <aside aria-live="polite" className="flex flex-col gap-4 rounded-2xl bg-surface p-6">
+    // Capped at the map's height (28rem on phones, 36rem on larger screens), so long content scrolls inside the panel.
+    <aside aria-live="polite" className="flex max-h-[28rem] flex-col gap-4 overflow-y-auto overscroll-contain rounded-2xl bg-surface p-6 md:max-h-[36rem]">
+      {onBack && (
+        <button
+          type="button"
+          onClick={onBack}
+          aria-label="Back to the previous map view"
+          className="self-start rounded-full border border-line bg-surface px-4 py-2 text-sm font-medium text-ink hover:bg-page"
+        >
+          ← Back to map
+        </button>
+      )}
       {details?.photo && (
         // eslint-disable-next-line @next/next/no-img-element
         <img

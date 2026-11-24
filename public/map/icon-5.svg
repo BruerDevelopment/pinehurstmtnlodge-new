@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
+  <!-- Shopping: purple circle with a soft shadow and a white shopping bag with a handle. -->
+  <circle cx="28" cy="30" r="27" fill="#000000" fill-opacity="0.18"/>
+  <circle cx="28" cy="28" r="27" fill="#7a3fb0"/>
+  <!-- Handle: a short loop above the bag -->
+  <path d="M23.5 25 V21 Q23.5 17.5 28 17.5 Q32.5 17.5 32.5 21 V25" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- Bag: wider at the bottom, with a rounded base -->
+  <path d="M19.5 24.5 H36.5 L39 41.5 Q39 43.5 37 43.5 H19 Q17 43.5 17 41.5 Z" fill="#ffffff"/>
+</svg>

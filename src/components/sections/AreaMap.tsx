@@ -93,6 +93,17 @@ export default function AreaMap({
   const [hints, setHints] = useState<Hints>({ topLeft: null, topRight: null, bottomLeft: null, bottomRight: null });
   const [selectedName, setSelectedName] = useState<string | null>(null);
   const selected = mapPoints.find((p) => p.name === selectedName);
+  // The Leaflet map and the view from before the first pin click, so Back can return to it.
+  const mapRef = useRef<LeafletMap | null>(null);
+  const previousView = useRef<{ center: LatLng; zoom: number } | null>(null);
+
+  // Returns to the view saved before the first pin click, and clears the selection.
+  const goBack = () => {
+    const view = previousView.current;
+    previousView.current = null;
+    if (view) mapRef.current?.flyTo(view.center, view.zoom);
+    setSelectedName(null);
+  };
 
   useEffect(() => {
     let map: LeafletMap | undefined;
@@ -102,13 +113,16 @@ export default function AreaMap({
       if (cancelled || !ref.current) return;
 
       const icons = {
-        lodge: L.icon({ iconUrl: withBase("/map/icon-1.png"), iconSize: [32, 32], iconAnchor: [16, 32], popupAnchor: [0, -32] }),
-        resort: L.icon({ iconUrl: withBase("/map/icon-2.png"), iconSize: [32, 32], iconAnchor: [16, 32], popupAnchor: [0, -32] }),
-        hiking: L.icon({ iconUrl: withBase("/map/icon-3.png"), iconSize: [32, 32], iconAnchor: [16, 32], popupAnchor: [0, -32] }),
+        lodge: L.icon({ iconUrl: withBase("/map/icon-1.svg"), iconSize: [32, 32], iconAnchor: [16, 32], popupAnchor: [0, -32] }),
+        resort: L.icon({ iconUrl: withBase("/map/icon-2.svg"), iconSize: [32, 32], iconAnchor: [16, 32], popupAnchor: [0, -32] }),
+        hiking: L.icon({ iconUrl: withBase("/map/icon-3.svg"), iconSize: [32, 32], iconAnchor: [16, 32], popupAnchor: [0, -32] }),
+        food: L.icon({ iconUrl: withBase("/map/icon-4.svg"), iconSize: [32, 32], iconAnchor: [16, 32], popupAnchor: [0, -32] }),
+        shopping: L.icon({ iconUrl: withBase("/map/icon-5.svg"), iconSize: [32, 32], iconAnchor: [16, 32], popupAnchor: [0, -32] }),
       };
 
       const m = L.map(ref.current, { center: mapCenter, zoom: mapZoom, scrollWheelZoom: false, zoomControl: false });
       map = m;
+      mapRef.current = m;
       L.control.zoom({ position: "bottomright" }).addTo(m);
 
       L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -117,10 +131,18 @@ export default function AreaMap({
       }).addTo(m);
 
       for (const point of mapPoints) {
-        L.marker(point.position, { icon: icons[point.icon], title: point.name })
+        // zIndexOffset keeps the lodge pin above the other markers where they overlap.
+        L.marker(point.position, {
+          icon: icons[point.icon],
+          title: point.name,
+          zIndexOffset: point.icon === "lodge" ? 1000 : 0,
+        })
           .on("click", () => {
+            // Save the overview only on the first pin click, so Back returns there and not to another pin.
+            if (!previousView.current) previousView.current = { center: m.getCenter(), zoom: m.getZoom() };
             setSelectedName(point.name);
-            m.panTo(point.position);
+            // Zoom in to a street-level view of the place, or stay put if the map is already closer.
+            m.flyTo(point.position, Math.max(m.getZoom(), 15));
           })
           .addTo(m);
       }
@@ -132,6 +154,7 @@ export default function AreaMap({
 
     return () => {
       cancelled = true;
+      mapRef.current = null;
       map?.remove();
     };
   }, []);
@@ -154,7 +177,7 @@ export default function AreaMap({
             ) : null;
           })}
         </div>
-        <MapDetailPanel point={selected} allArticles={allArticles} />
+        <MapDetailPanel point={selected} allArticles={allArticles} onBack={goBack} />
       </div>
 
       {articles.length > 0 && (

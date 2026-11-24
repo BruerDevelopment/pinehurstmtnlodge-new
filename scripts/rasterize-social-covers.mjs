@@ -1,6 +1,6 @@
-// Renders the SVG sources in public/ to PNGs in out/, after `next build` (the static export clears and recreates out/).
+// Renders the social cover SVGs to PNGs in out/, after `next build` (the static export clears and recreates out/).
 //   - Social covers: public/photos/social_covers/*.svg -> 1200x627 PNGs (link previews need PNG/JPG).
-//   - Map icons:     public/map/*.svg -> 56x56 PNGs (Leaflet markers use PNG).
+// Map icons are SVG and load directly in Leaflet, so they are not rasterized.
 // See the "postbuild" script in package.json and the GitHub Actions workflow.
 import fs from "node:fs";
 import path from "node:path";
@@ -16,13 +16,6 @@ const jobs = [
     outDir: path.join(root, "out", "photos", "social_covers"),
     width: 1200,
     height: 627,
-  },
-  {
-    label: "map icon",
-    sourceDir: path.join(root, "public", "map"),
-    outDir: path.join(root, "out", "map"),
-    width: 56,
-    height: 56,
   },
 ];
 
