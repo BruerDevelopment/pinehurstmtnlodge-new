@@ -22,7 +22,7 @@ const upstairsItems: { file: number; caption: string; alt: string }[] = [
   { file: 4, caption: "Cookware", alt: "Pots and pans" },
   { file: 3, caption: "Cookware lids", alt: "Lids for pots and pans" },
   { file: 7, caption: "Bakeware", alt: "Baking pans and sheets" },
-  { file: 21, caption: "Pie plates", alt: "Glass pie plates, several of them" },
+  { file: 21, caption: "Pie plates (6)", alt: "Glass pie plates, several of them" },
   { file: 20, caption: "Oven mitts", alt: "Oven mitts" },
   { file: 31, caption: "12-inch granitestone fryer", alt: "12-inch granitestone fryer" },
   { file: 39, caption: "Pans", alt: "Pans for the upstairs kitchen" },
