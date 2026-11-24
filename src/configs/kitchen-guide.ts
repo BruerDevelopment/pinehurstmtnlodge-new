@@ -16,6 +16,7 @@ const upstairsItems: { file: number; caption: string; alt: string }[] = [
   { file: 12, caption: "Dishes", alt: "Dishes in a cupboard" },
   { file: 9, caption: "Bowls", alt: "Bowls on a shelf" },
   { file: 24, caption: "Silverware", alt: "Silverware in a drawer" },
+  { file: 42, caption: "Platters", alt: "Serving platters in three sizes" },
   { file: 13, caption: "Glassware", alt: "Shelves of drinking glasses and stemware" },
   // Cookware and bakeware
   { file: 4, caption: "Cookware", alt: "Pots and pans" },
@@ -23,6 +24,12 @@ const upstairsItems: { file: number; caption: string; alt: string }[] = [
   { file: 7, caption: "Bakeware", alt: "Baking pans and sheets" },
   { file: 21, caption: "Pie plates", alt: "Glass pie plates, several of them" },
   { file: 20, caption: "Oven mitts", alt: "Oven mitts" },
+  { file: 31, caption: "12-inch granitestone fryer", alt: "12-inch granitestone fryer" },
+  { file: 39, caption: "Pans", alt: "Pans for the upstairs kitchen" },
+  { file: 41, caption: "Pizza pan", alt: "Pizza pan" },
+  { file: 34, caption: "Bread pans", alt: "Bread pans" },
+  { file: 32, caption: "2- and 3-quart baking dishes with lids", alt: "2- and 3-quart baking dishes with lids" },
+  { file: 43, caption: "Roasting pan", alt: "Roasting pan" },
   // Utensils and prep
   { file: 5, caption: "Utensil drawer A", alt: "Utensil drawer with cooking tools" },
   { file: 6, caption: "Utensil drawer B", alt: "Second utensil drawer with cooking tools" },
@@ -31,6 +38,8 @@ const upstairsItems: { file: number; caption: string; alt: string }[] = [
   { file: 28, caption: "Thermometers", alt: "Meat and kitchen thermometers" },
   { file: 19, caption: "Mixing bowls with lids", alt: "Mixing bowls with lids" },
   { file: 14, caption: "Hand mixer", alt: "Hand mixer with beaters" },
+  { file: 40, caption: "Pie server", alt: "Pie server" },
+  { file: 44, caption: "Rolling pin", alt: "Rolling pin, 15.75 inches" },
   // Small appliances
   { file: 8, caption: "Blender", alt: "Blender on a cabinet shelf" },
   { file: 16, caption: "Juicer", alt: "Citrus juicer" },
@@ -38,15 +47,21 @@ const upstairsItems: { file: number; caption: string; alt: string }[] = [
   { file: 29, caption: "Toaster oven", alt: "Countertop toaster oven" },
   { file: 18, caption: "Microwave", alt: "Microwave oven" },
   { file: 27, caption: "Tea kettle", alt: "Stainless steel stovetop tea kettle" },
+  { file: 36, caption: "Espresso machine", alt: "Espresso machine" },
+  { file: 35, caption: "Espresso and drip coffee makers", alt: "Espresso and drip coffee makers" },
   // Glassware, drinks, and outdoor
   { file: 15, caption: "Hot tub plastic glasses", alt: "Plastic glasses for the hot tub" },
   { file: 1, caption: "Brita water filter", alt: "Large capacity Brita water filter" },
   { file: 30, caption: "Water carafes", alt: "Glass water carafes" },
+  // Storage
+  { file: 37, caption: "Food storage", alt: "Food storage containers" },
+  { file: 38, caption: "Laundry baskets", alt: "Laundry baskets" },
   // Pantry
   { file: 25, caption: "Spice cupboard", alt: "Spice cupboard with communal spices" },
   { file: 23, caption: "Salt & pepper", alt: "Salt and pepper grinders" },
   //Outdoors
   { file: 10, caption: "Cooler", alt: "Cooler" },
+  { file: 33, caption: "BBQ tools", alt: "BBQ tools" },
 ];
 
 const downstairsItems: { file: number; caption: string; alt: string }[] = [
